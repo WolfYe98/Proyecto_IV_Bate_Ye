@@ -3,12 +3,12 @@
 ## Descripción:
 DancInform es un API creado para consultar los distintos estilos de danzas modernas que hay, un poco de su historia y que parte del cuerpo se suelen trabajar más en cada estilo.
 
-##Herramientas
+## Herramientas
 - **JavaScript: Node.js**
 
-##Documentación:
+## Documentación:
 - [¿Por qué JavaScript?](docs/herramientas.md)
 - [Comprobación de Git](docs/comprobacion.md)
 
-##Autor:
+## Autor:
 - [Bate Ye](https://github.com/WolfYe98)
