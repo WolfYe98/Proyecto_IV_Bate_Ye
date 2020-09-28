@@ -4,4 +4,4 @@
 ![](imagenes/git.png)
 
 ## Configuración git:
-![](/imagenes/config.png)
+![](imagenes/config.png)
