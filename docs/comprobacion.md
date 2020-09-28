@@ -1,7 +1,7 @@
-#Comprobación:
+# Comprobación:
 
-##SSH:
+## SSH:
 - [ ](imagenes/git.png)
 
-##Configuración git:
+## Configuración git:
 - [ ](imagenes/config.png)
