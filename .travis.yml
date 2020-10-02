@@ -5,5 +5,4 @@ node_js:
 
 before_install:
   - npm install gulp
-  - cd app; npm install .
 script: gulp test
