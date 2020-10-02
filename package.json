@@ -1,0 +1,25 @@
+{
+  "name": "proyecto_iv_bate_ye",
+  "version": "1.0.0",
+  "description": "API que devuelve informacion de los diferentes estilos de danza urbana",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WolfYe98/Proyecto_IV_Bate_Ye.git"
+  },
+  "author": "Bate Ye",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WolfYe98/Proyecto_IV_Bate_Ye/issues"
+  },
+  "homepage": "https://github.com/WolfYe98/Proyecto_IV_Bate_Ye#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}
