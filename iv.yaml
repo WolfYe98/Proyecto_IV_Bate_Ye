@@ -1,2 +1,2 @@
 entidad:
-  - app/lib/styleclass.js
+  - app/lib/connection.js
