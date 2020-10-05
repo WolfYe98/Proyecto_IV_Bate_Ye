@@ -16,5 +16,9 @@ Para instalar las dependencias hay que clonar el repositorio y ejecutar:
 ```bash
 $ npm install gulp
 ```
+o con la opcion -g:
+```bash
+$ npm -g install gulp
+```
 ## Autor:
 - [Bate Ye](https://github.com/WolfYe98)
