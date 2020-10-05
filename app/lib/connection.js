@@ -5,6 +5,7 @@ class Connection{
     this.host = host;
     this.user = user;
     this.password = password;
+    this.conexion = null;
   }
   connect(){
     this.conexion = mysql.createConnection({host:this.host,user:this.user,password:this.password});
