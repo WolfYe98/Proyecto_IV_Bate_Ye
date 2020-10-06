@@ -2,7 +2,7 @@
   "name": "proyecto_iv_bate_ye",
   "version": "1.0.0",
   "description": "API que devuelve informacion de los diferentes estilos de danza urbana",
-  "main": "index.js",
+  "main": "app/main.js",
   "directories": {
     "doc": "docs"
   },
