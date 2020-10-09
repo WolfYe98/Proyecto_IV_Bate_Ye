@@ -21,5 +21,9 @@
   "homepage": "https://github.com/WolfYe98/Proyecto_IV_Bate_Ye#readme",
   "devDependencies": {
     "gulp": "^4.0.2"
+  },
+  "dependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.1.3"
   }
 }
