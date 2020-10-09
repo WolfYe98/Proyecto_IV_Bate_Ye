@@ -11,7 +11,11 @@ DancInform es un API creado para consultar los distintos estilos de danzas moder
 - [Comprobación de Git](docs/comprobacion.md)
 
 ## Dependencias:
-Para instalar las dependencias hay que clonar el repositorio y ejecutar:
+Para instalar las dependencias hay que clonar el repositorio con:
+```bash
+$ git clone https://github.com/WolfYe98/Proyecto_IV_Bate
+```
+y ejecutar:
 ```bash
 $ npm install gulp
 ```
