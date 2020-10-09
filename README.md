@@ -13,6 +13,8 @@ Con esta API, mi intención es facilitar a las personas que aún no han empezado
 - [¿Por qué JavaScript?](docs/herramientas.md)
 - [Comprobación de Git](docs/comprobacion.md)
 - [Clase Principal](https://github.com/WolfYe98/Proyecto_IV_Bate/blob/master/app/database.js)
+- [Enlace a HU](https://github.com/WolfYe98/Proyecto_IV_Bate/milestone/2)
+- [iv.yaml](https://github.com/WolfYe98/Proyecto_IV_Bate/blob/master/iv.yaml)
 
 ## Dependencias:
 Para instalar las dependencias hay que clonar el repositorio con:
