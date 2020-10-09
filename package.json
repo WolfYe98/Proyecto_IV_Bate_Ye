@@ -24,6 +24,8 @@
   },
   "dependencies": {
     "chai": "^4.2.0",
+    "gulp-jsdoc3": "^3.0.0",
+    "gulp-mocha": "^7.0.2",
     "mocha": "^8.1.3"
   }
 }
