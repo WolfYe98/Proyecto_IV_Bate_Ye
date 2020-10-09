@@ -5,11 +5,12 @@ DancInform es un API creado para consultar los distintos estilos de danzas moder
 
 ## Herramientas
 - **JavaScript: [Node.js](https://nodejs.org/es/)**
+- **Chai**: [Chai](https://www.chaijs.com)
 
 ## Documentación:
 - [¿Por qué JavaScript?](docs/herramientas.md)
 - [Comprobación de Git](docs/comprobacion.md)
-
+- [Clase Principal](app/lib/)
 ## Dependencias:
 Para instalar las dependencias hay que clonar el repositorio con:
 ```bash
@@ -17,12 +18,10 @@ $ git clone https://github.com/WolfYe98/Proyecto_IV_Bate
 ```
 y ejecutar:
 ```bash
-$ npm install gulp
+$ npm install
 ```
-o con la opcion -g:
-```bash
-$ npm -g install gulp
-```
+
+
 
 ## Autor:
 - [Bate Ye](https://github.com/WolfYe98)
