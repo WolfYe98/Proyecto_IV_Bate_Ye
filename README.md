@@ -6,11 +6,13 @@ DancInform es un API creado para consultar los distintos estilos de danzas moder
 ## Herramientas
 - **JavaScript: [Node.js](https://nodejs.org/es/)**
 - **Chai**: [Chai](https://www.chaijs.com)
+- **Mocha**: [Mocha](https://mochajs.org)
 
 ## Documentación:
 - [¿Por qué JavaScript?](docs/herramientas.md)
 - [Comprobación de Git](docs/comprobacion.md)
 - [Clase Principal](https://github.com/WolfYe98/Proyecto_IV_Bate/blob/master/app/database.js)
+
 ## Dependencias:
 Para instalar las dependencias hay que clonar el repositorio con:
 ```bash
@@ -20,8 +22,6 @@ y ejecutar:
 ```bash
 $ npm install
 ```
-
-
 
 ## Autor:
 - [Bate Ye](https://github.com/WolfYe98)
