@@ -1,6 +1,7 @@
-function defaultTask(cb) {
-  // place code for your default task here
-  cb();
-}
+var gulp = require('gulp');
+var mocha = require('gulp-mocha');
 
-exports.default = defaultTask
+gulp.task('test', async function(){
+  gulp.src('test')
+  .pipe(mocha());
+});
