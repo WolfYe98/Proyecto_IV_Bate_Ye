@@ -23,10 +23,6 @@ o con la opcion -g:
 ```bash
 $ npm -g install gulp
 ```
-Para la instalación del framework Express necesitarás ejecutar:
-```
-$ npm install express
-```
 
 ## Autor:
 - [Bate Ye](https://github.com/WolfYe98)
