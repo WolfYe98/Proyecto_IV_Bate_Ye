@@ -103,7 +103,7 @@ class Database{
     }
   }
   /**
-  * @function getStylesByCity
+  * @function addStyle
   * @summary Método para añadir un estilo de baile, para añadirlo hay que escribir todos los datos del estilo.
   * @author Bate Ye
   * @param {string} styleName Nombre del estilo nuevo que queremos incluir.
@@ -123,7 +123,7 @@ class Database{
       var new_object={};
       new_object[styleName.toLowerCase()] = {
         "year": year,
-        "fouder":founder,
+        "founder":founder,
         "city":city,
         "history":history,
         "description":description,
@@ -147,6 +147,30 @@ class Database{
         else{
           return "Este estilo ya existe";
         }
+      }
+    }
+  }
+  /**
+  * @function deleteStyle
+  * @summary Método para añadir un estilo de baile, para añadirlo hay que escribir todos los datos del estilo.
+  * @author Bate Ye
+  * @param {string} styleName Es el nombre del estilo de baile que queremos borrar.
+  * @returns {string} Devuelve un string indicando que se ha eliminado el estilo o que el estilo no existe en la database.
+  */
+  deleteStyle(styleName){
+    if(this.data != undefined){
+      if(this.getStyles().toString().toLowerCase().includes(styleName.toLowerCase())){
+        delete this.data[styleName.toLowerCase()];
+        fs.writeFile(this.path,JSON.stringify(this.data,null,4),function(err){
+          if(err){
+            throw err;
+          }
+          console.log("Eliminado");
+        });
+        return "Eliminado!";
+      }
+      else{
+        return "El nombre no coincide con los estilos que tenemos";
       }
     }
   }
