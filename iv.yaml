@@ -1,2 +1,8 @@
 entidad:
   - app/lib/connection.js
+lenguaje:
+  - node
+test:
+  - test/database-chai.js
+taskfile:
+  gulpfile.js
