@@ -1,5 +1,5 @@
 entidad:
-  - app/lib/connection.js
+  - app/lib/database.js
 lenguaje:
   - node
 test:
