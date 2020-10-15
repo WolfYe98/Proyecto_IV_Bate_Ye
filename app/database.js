@@ -15,7 +15,6 @@ class Database{
     }
     catch(err){
       this.data = undefined;
-      console.log(err);
     }
   }
 
@@ -140,7 +139,6 @@ class Database{
               if(err){
                 throw err;
               }
-              console.log("Añadido!");
             });
             return "Añadido!";
         }
@@ -165,7 +163,6 @@ class Database{
           if(err){
             throw err;
           }
-          console.log("Eliminado");
         });
         return "Eliminado!";
       }
