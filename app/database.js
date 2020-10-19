@@ -8,16 +8,29 @@ class Database{
   * @param {string} path Ruta al archivo que guardan los datos
   */
   constructor(path){
-    this.path = path;
-    try{
-      this.dataFile = fs.readFileSync(this.path,'utf-8');
-      this.data = JSON.parse(this.dataFile);
+    if(path != undefined){
+      this.path = path;
+      try{
+        this.dataFile = fs.readFileSync(this.path,'utf-8');
+        this.data = JSON.parse(this.dataFile);
+      }
+      catch(err){
+        this.data = undefined;
+      }
     }
-    catch(err){
-      this.data = undefined;
+    else{
+      this.data = {
+        "hiphop": {
+          "year": 1970,
+          "founder": "DJ Kool Herc",
+          "city": "New York",
+          "history": "Hip-Hop en la actualidad lo conocen como un estilo de danza urbana freestyle, pero en realidad Hip-Hop es una cultura generada en el sur de Bronx, New York en los años 70s por los jovenes afroamericanos y LatinoAmericanos. En un principio Hip-Hop se refería a 4 grandes elementos: rap, breaking, graffiti y djing. Durante los 70s, 80s, el único estilo de baile del Hip-Hop era solamente breaking, hasta que empezaron a desarrollar más pasos de baile sin movimientos en el suelo (top-rocks), y entonces nació el estilo de baile llamado Hip-Hop",
+          "description": "Hip-Hop es un baile que requiere muchos bounces (rebotes), es más, lo primero que se enseña en Hip-Hop son los 2 tipos de bounce que hay, el up y el down. En Hip-Hop es muy importante que nunca se olviden del bounce, ya que es lo fundamental de este estilo. Requiere muchas prácticas para dominar el bounce hasta meterlo en pasos más complejos como el slide, ball change, kick ball change etc... Otra parte muy importante es la musicalidad, es decir, saber contar los 8s de la música. Hoy en día, las personas suelen bailar Hip-Hop con música de diferentes estilos, pero en su inicio, Hip-Hop siempre se bailaba con rap old school.",
+          "body":["piernas","pecho","cadera"]
+        }
+      };
     }
   }
-
     /**
     * @function getStyles
     * @summary Método para consultar los estilos de baile.
@@ -135,11 +148,6 @@ class Database{
         var añadido = false;
         if(!this.getStyles().toString().toLowerCase().includes(styleName.toLowerCase())){
             this.data = Object.assign(new_object,this.data);
-            fs.writeFile(this.path,JSON.stringify(this.data,null,4),function(err){
-              if(err){
-                throw err;
-              }
-            });
             return "Añadido!";
         }
         else{
@@ -159,16 +167,20 @@ class Database{
     if(this.data != undefined){
       if(this.getStyles().toString().toLowerCase().includes(styleName.toLowerCase())){
         delete this.data[styleName.toLowerCase()];
-        fs.writeFile(this.path,JSON.stringify(this.data,null,4),function(err){
-          if(err){
-            throw err;
-          }
-        });
         return "Eliminado!";
       }
       else{
         return "El nombre no coincide con los estilos que tenemos";
       }
+    }
+  }
+  writeFile(){
+    if(this.path != undefined){
+      fs.writeFile(this.path,JSON.stringify(this.data,null,4),function(err){
+        if(err){
+          throw err;
+        }
+      });
     }
   }
 }
