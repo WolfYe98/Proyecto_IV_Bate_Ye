@@ -57,6 +57,7 @@ Todas las pruebas las he ejecutado en el Sistema Operativo Ubuntu 20.04
 ### Tiempo de ejecución para test:
 - Node:14.14.0: 2,65s
 - Node:14.14.0-alpine: 1,71s
+
 Dado que, el Node:14.14.0 tarda mucho y pesa mucho también y Node:14.14.0-slim no ejecuta npm install, he decidido utilizar Node:14.14.0-alpine.
 
 ## Autor:
