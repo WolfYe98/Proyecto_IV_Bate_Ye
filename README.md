@@ -63,7 +63,7 @@ Dado que, el Node:14.14.0 tarda mucho y pesa mucho también y Node:14.14.0-slim 
 ## Dockerfile
 [Pincha aquí para ver mi Dockerfile](https://github.com/WolfYe98/Proyecto_IV_Bate/blob/master/Dockerfile)
 
-En mi Dockerfile, para empezar indico que voy a utilizar Node:14.14.0-alpine, después, copio los ficheros package*.json y package-lock.json para luego ejecutar npm install para instalar las dependencias.
+En mi Dockerfile, para empezar indico que voy a utilizar Node:14.14.0-alpine, después, copio los ficheros package.json y package-lock.json para luego ejecutar npm install para instalar las dependencias.
 
 Una vez instalado las dependencias elimino los ficheros package.json y package-lock.json, más tarde ejecuto npm install -g gulp para instalar la herramienta de construcción.
 
