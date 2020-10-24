@@ -1,4 +1,4 @@
-FROM node:14.14.0-alpine
+FROM node:14.14.0-slim
 #Utilizamos la versión alpine que pesa solamente 117MB y es bastante rápido
 LABEL version="1.0.8" maintainer="mingye@hotmail.es"
 
