@@ -42,6 +42,7 @@ Para la imagen base, he decidido probar con alguna de las imágenes oficiales de
 
 Así a simple vista, por tamaño me inclino un poco más por la versión alpine, ya que es también muy recomendado para imágenes finales pequeñas.
 Pero ahora vienen las pruebas:
+
 Todas las pruebas las he ejecutado en el Sistema Operativo Ubuntu 20.04
 - Tiempo de construcción de Node:14.14.0: 107,01s
 - Tiempo de construcción de Node:14.14.0-alpine: 54,74s
