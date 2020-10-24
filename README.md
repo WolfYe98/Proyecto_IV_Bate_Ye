@@ -49,7 +49,7 @@ Todas las pruebas las he ejecutado en el Sistema Operativo Ubuntu 20.04
 - Tiempo de construcción de Node:14.14.0-alpine: 54,74s
 - Tiempo de construcción de Node:14.14.0-slim: 59,79s pero no ha podido ejecutar npm install (producía un error).
 
-## Tamaño resultante y pruebas de tiempo de test:
+### Tamaño resultante y pruebas de tiempo de test:
 ### Tamaño resultante:
 - Node:14.14.0: 1.01G
 - Node:14.14.0-alpine: 184MB
