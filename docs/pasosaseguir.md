@@ -17,3 +17,7 @@
   - Comprender que es [TDD](http://jj.github.io/IV/documentos/temas/Desarrollo_basado_en_pruebas)
   - Crear [test](https://github.com/WolfYe98/Proyecto_IV_Bate/tree/master/test) con Mocha y Chai.
   - Automatizar el proyecto con [GULP](https://github.com/WolfYe98/Proyecto_IV_Bate/blob/master/gulpfile.js)
+
+## Hito 3:
+  - Entender [Docker](https://www.docker.com)
+  - Crear mi [Dockerfile](https://github.com/WolfYe98/Proyecto_IV_Bate/blob/master/Dockerfile)
