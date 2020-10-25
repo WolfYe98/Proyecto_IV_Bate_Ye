@@ -70,6 +70,8 @@ Una vez instalado las dependencias elimino los ficheros package.json y package-l
 Al final ejecuto gulp test para testear.
 
 ## Integración continua
+- [Dockerhub](https://hub.docker.com/repository/docker/wolfye98/proyecto_iv_bate): En Dockerhub, he configurado que se construya automáticamente cada vez que realizo un push en git, siguiendo los pasos de esta [documentación](https://docs.docker.com/docker-hub/builds/). La construcción en Dockerhub ha tardado casi 4 minutos.
+
 
 
 ## Autor:
