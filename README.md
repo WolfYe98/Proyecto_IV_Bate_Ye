@@ -68,5 +68,9 @@ En mi Dockerfile, para empezar indico que voy a utilizar Node:14.14.0-alpine, de
 Una vez instalado las dependencias elimino los ficheros package.json y package-lock.json, más tarde ejecuto npm install -g gulp para instalar la herramienta de construcción.
 
 Al final ejecuto gulp test para testear.
+
+## Integración continua
+
+
 ## Autor:
 - [Bate Ye](https://github.com/WolfYe98)
