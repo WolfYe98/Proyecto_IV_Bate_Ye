@@ -17,7 +17,9 @@ Con esta API, mi intención es facilitar a las personas que aún no han empezado
 - [Clase Principal](https://github.com/WolfYe98/Proyecto_IV_Bate/blob/master/app/database.js)
 - [Enlace a Historias de Usuario](https://github.com/WolfYe98/Proyecto_IV_Bate/milestone/2)
 - [iv.yaml](https://github.com/WolfYe98/Proyecto_IV_Bate/blob/master/iv.yaml)
-
+- [Enlaces a issues abiertos](https://github.com/WolfYe98/Proyecto_IV_Bate/issues)
+- [Enlaces a issues cerrados](https://github.com/WolfYe98/Proyecto_IV_Bate/issues?q=is%3Aissue+is%3Aclosed)
+- [Enlaces a milestones](https://github.com/WolfYe98/Proyecto_IV_Bate/milestones)
 ## Dependencias:
 Para instalar las dependencias hay que clonar el repositorio con:
 ```bash
@@ -69,9 +71,29 @@ Una vez instalado las dependencias elimino los ficheros package.json y package-l
 
 Al final ejecuto gulp test para testear.
 
+### Descargar la imagen:
+Para ejecutar el test, tienes que clonar mi repositorio con:
+```bash
+$ git clone https://github.com/WolfYe98/Proyecto_IV_Bate
+```
+Para descargar mi imagen subida, puedes ejecutar este comando:
+```bash
+$ docker pull ghcr.io/wolfye98/proyecto_iv_bate:latest
+```
+Ir hasta el directorio de mi repositorio y ejecutar:
+```bash
+$ docker run -t -v `pwd`:/test wolfye98/proyecto_iv_bate
+```
+o
+```bash
+$ docker run -t -v `pwd`:/test ghcr.io/wolfye98/proyecto_iv_bate
+```
 ## Integración continua
-- [Dockerhub](https://hub.docker.com/repository/docker/wolfye98/proyecto_iv_bate): En Dockerhub, he configurado que se construya automáticamente cada vez que realizo un push en git, siguiendo los pasos de esta [documentación](https://docs.docker.com/docker-hub/builds/). La construcción en Dockerhub ha tardado casi 4 minutos.
-
+- [Dockerhub](https://hub.docker.com/repository/docker/wolfye98/proyecto_iv_bate): En Dockerhub, he configurado que se construya automáticamente cada vez que realizo un push en git, siguiendo los pasos de esta [documentación](https://docs.docker.com/docker-hub/builds/).
+Para la actualización automática, he configurado
+- [Github Container Registry](https://github.com/users/WolfYe98/packages/container/package/proyecto_iv_bate): Este es el registro alternativo que he decidido usarlo, ya que es el recomendado por el profesor y solamente tienes que seguir los pasos que te aparecen en Github Packages.
+- He configurado un [action](https://github.com/WolfYe98/Proyecto_IV_Bate/blob/master/.github/workflows/dockergit.yml) para que se la imagen se actualice automáticamente en Github Packages. Este action se activa cada vez que realicemos un push. Y en Dockerhub, se actualiza automáticamente en cuanto hayas enlazado tu repositorio de Dockerhub con el repositorio que tienes en Github.
+- La construcción del contenedor, en Dockerhub tarda entre 2-3 minutos y en Github Container Registry 1 minuto y algo.
 
 
 ## Autor:
