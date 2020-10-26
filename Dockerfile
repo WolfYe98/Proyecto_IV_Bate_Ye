@@ -3,7 +3,6 @@ FROM node:14.14.0-alpine
 LABEL version="1.0.8" maintainer="mingye@hotmail.es"
 
 #Usamos test como usuario ya que no nos hace falta permisos de superusuario.
-RUN /usr/sbin/groupadd -r test && /usr/sbin/useradd -r -g test test
 USER test
 
 #Copiamos ficheros de dependencias e instalamos las dependencias
