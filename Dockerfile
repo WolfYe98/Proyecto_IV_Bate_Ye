@@ -12,7 +12,7 @@ RUN rm package*.json
 #Instalamos gulp
 RUN npm install -g gulp
 
-#Usamos test como usuario ya que no nos hace falta permisos de superusuario.
+#Usamos node como usuario ya que ya no nos hace falta permisos de superusuario.
 USER node
 
 VOLUME /test
