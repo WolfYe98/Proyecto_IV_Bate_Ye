@@ -69,7 +69,7 @@ En mi Dockerfile, para empezar indico que voy a utilizar Node:14.14.0-alpine, de
 
 Una vez instalado las dependencias elimino los ficheros package.json y package-lock.json, más tarde ejecuto npm install -g gulp para instalar la herramienta de construcción.
 
-Cambio el usuario al usuario "node", que existen en las imagenes de node por defecto y son no-superusuario.
+Cambio el usuario al usuario "node", que existen en las imágenes oficiales de node por defecto y son no-superusuario. (He utilizado este usuario porque en estas imágenes no puedo ejecutar useradd ni groupadd).
 
 Al final ejecuto gulp test para testear.
 
