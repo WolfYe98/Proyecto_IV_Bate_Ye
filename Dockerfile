@@ -3,7 +3,7 @@ FROM node:14.14.0-alpine
 LABEL version="1.0.8" maintainer="mingye@hotmail.es"
 
 #Usamos test como usuario ya que no nos hace falta permisos de superusuario.
-USER test
+USER node
 
 #Copiamos ficheros de dependencias e instalamos las dependencias
 COPY package*.json ./
