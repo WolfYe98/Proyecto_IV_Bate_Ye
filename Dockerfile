@@ -15,10 +15,7 @@ RUN rm package*.json
 #Instalamos gulp
 RUN npm install -g gulp
 
-#Usamos node como usuario ya que ya no nos hace falta permisos de superusuario.
-#USER node
-
-#Cambiamos al usuario bateye
+#Cambiamos al usuario bateye ya que no necesitamos permisos root para ejecutar los tests.
 USER bateye
 
 VOLUME /test
