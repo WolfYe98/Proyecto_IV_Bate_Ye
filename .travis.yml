@@ -1,14 +1,18 @@
+#Uso el lenguaje node
 language: node_js
+#Las versiones que voy a utilizar del lenguaje serán el 10 y el 14
 node_js:
   - "10"
   - "14"
-sudo: required
+#Indicamos que usaremos un servicio docker, para usar el contenedor después.
 services:
   - docker
+#Estas son las preinstalaciones, que traen la imagen de docker, instalan las dependencias e instala gulp.
 before_install:
   - docker pull wolfye98/proyecto_iv_bate
   - npm install
   - npm install -g gulp
+#Ejecución de los test en local y en el container.
 script:
   - gulp test
   - docker run -t -v `pwd`:/test wolfye98/proyecto_iv_bate
