@@ -1,9 +1,8 @@
 language: node_js
 node_js:
-  - "10"
   - 14.12.0
   - 14.14.0
 before_install:
   - npm install
-  - npm intall -g gulp
+  - npm intall gulp
 script: gulp test
