@@ -1,12 +1,14 @@
 language: node_js
-services:
-  - docker
 node_js:
   - "10"
   - "14"
+sudo: required
+services:
+  - docker
 before_install:
   - docker pull wolfye98/proyecto_iv_bate
-  - docker run -t -v `pwd`:/test wolfye98/proyecto_iv_bate
   - npm install
   - npm install -g gulp
-script: gulp test
+script:
+  - gulp test
+  - docker run -t -v `pwd`:/test wolfye98/proyecto_iv_bate
