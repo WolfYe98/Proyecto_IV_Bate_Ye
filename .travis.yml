@@ -1,9 +1,12 @@
 language: node_js
-os:
-  - linux
-dist: focal
+services:
+  - docker
 node_js:
-  - 14.12.0
+  - "10"
+  - "14"
 before_install:
+  - docker pull wolfye98/proyecto_iv_bate
+  - docker run -t -v `pwd`:/test wolfye98/proyecto_iv_bate
   - npm install
-script: gulp
+  - npm install -g gulp
+script: gulp test
