@@ -57,7 +57,6 @@ $ services:
 ```
 
 Preinstalo todas las dependencias, el task runner y el contenedor docker con:
-el servicio Docker así:
 ```bash
 $ before_install:
     - docker pull wolfye98/proyecto_iv_bate
