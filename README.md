@@ -32,7 +32,7 @@ En [este fichero](docs/integraciondocker.md) explico lo que he hecho para realiz
 
 ## Integración continua:
 ### Travis:
-[Travis](https://travis-ci.org), es el primer sistema de integración continua que he configurado. Para utilizarlo simplemente tienes que darte de alta en
+[Travis](https://travis-ci.org), es el primer servicio de integración continua que he configurado. Para utilizarlo simplemente tienes que darte de alta en
 [Travis](https://travis-ci.org) y activar el repositorio (directamente en Travis).
 Después de activar el repositorio, tienes que configurar un fichero .travis.yml que indica las acciones que realizarán en Travis.
 #### Mi fichero .travis.yml:
@@ -69,6 +69,36 @@ $ script:
 ```
 
 ### Shippable:
+He elegido [Shippable](https://app.shippable.com) como mi segundo servicio de integración continua por varios motivos:
+* Es muy parecido a Travis, sencillo de usar, simplemente tienes que darte de alta en la página web y activar el repositorio allí en la página.
+* Tiene una interfaz que muestra muy bien todos los pasos de la construcción del repositorio.
+* Es muy rápido, al menos hasta ahora no ha tardado más de 3 minutos en cada commit.
+* El archivo de configuración es muy muy parecido al archivo de configuración de Travis, de esta forma, he podido configurarlo mucho más rápido.
+* La [documentación](http://docs.shippable.com/ci/yml-structure/) que tiene sobre el archivo de configuración es muy completa.
+
+#### Mi shippable.yml:
+El archivo de configuración de Shippable que tengo es este: [shippable.yml](https://github.com/WolfYe98/Proyecto_IV_Bate/blob/master/shippable.yml).
+Este archivo es muy parecido al archivo de configuración de Travis.
+
+Para empezar, como en Travis, especifico el lenguaje que voy a utilizar:
+```bash
+$ language: node_js
+```
+Después, especifico las versiones donde voy a ejecutar los tests:
+```bash
+$ node_js:
+  - "10"
+  - "14"
+```
+Finalmente, indico que instalen las dependencias y el task runner, y al final que ejecute los tests:
+```bash
+$ build:
+    ci:
+      - npm install
+      - npm install -g gulp
+      - gulp test
+
+```
 
 
 ## Autor:
