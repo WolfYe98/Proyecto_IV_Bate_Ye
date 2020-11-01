@@ -50,24 +50,21 @@ $ node_js:
   - "14"
 ```
 
-Como vamos a utilizar el contenedor de Docker también, indico que quiero usar el servicio Docker así:
+Como vamos a utilizar el contenedor de Docker, indico que quiero usar el servicio Docker así:
 ```bash
 $ services:
   - docker
 ```
 
-Preinstalo todas las dependencias, el task runner y el contenedor docker con:
+Preinstalo el contenedor docker con:
 ```bash
 $ before_install:
     - docker pull wolfye98/proyecto_iv_bate
-    - npm install
-    - npm install -g gulp
 ```
 
-Al final ejecuto tanto el test con gulp como el test con el contenedor Docker:
+Al final ejecuto el test en el contenedor Docker:
 ```bash
 $ script:
-    - gulp test
     - docker run -t -v `pwd`:/test wolfye98/proyecto_iv_bate
 ```
 
