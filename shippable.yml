@@ -7,6 +7,15 @@ node_js:
 services:
   - docker
 build:
+  pre_ci:
+    - docker pull
+
+  pre_ci_boot:
+    image_name: wolfye98/proyecto_iv_bate    ##replace with your repo and image name
+    image_tag: latest
+    pull: true
+    env: FOO=bar
+    options: "-e HOME=/root"
   ci:
     - npm install
     - npm install -g gulp
