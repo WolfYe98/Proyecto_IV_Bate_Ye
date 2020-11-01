@@ -1,0 +1,12 @@
+#Especifico que usaré node.js
+language: node_js
+#Las versiones en las que probaré son en versión 10 y 14.
+node_js:
+  - "10"
+  - "14"
+
+build:
+  ci:
+    - npm install
+    - npm install -g gulp
+    - gulp test
