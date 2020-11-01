@@ -23,11 +23,11 @@ Con esta API, mi intención es facilitar a las personas que aún no han empezado
 ## Docker:
 En [este fichero](docs/dockerimagebase.md) explico la imagen base que he cogido y el por qué. También incluye los tests de diferentes imágenes probados.
 
-## Dockerfile y descargar mi imagen Docker
+### Dockerfile y descargar mi imagen Docker
 [Aquí dejo el enlace de explicación a mi Dockerfile, y también explico cómo descargar mi imagen de Docker](docs/dockerfile.md)
 
 
-## Integración continua Docker
+### Integración continua Docker
 En [este fichero](docs/integraciondocker.md) explico lo que he hecho para realizar integración continua de Docker.
 
 ## Integración continua:
