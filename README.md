@@ -35,7 +35,7 @@ En [este fichero](docs/integraciondocker.md) explico lo que he hecho para realiz
 [Travis](https://travis-ci.org), es el primer sistema de integración continua que he configurado. Para utilizarlo simplemente tienes que darte de alta en
 [Travis](https://travis-ci.org) y activar el repositorio (directamente en Travis).
 Después de activar el repositorio, tienes que configurar un fichero .travis.yml que indica las acciones que realizarán en Travis.
-### Mi fichero .travis.yml:
+#### Mi fichero .travis.yml:
 [Este fichero .travis.yml](https://github.com/WolfYe98/Proyecto_IV_Bate/blob/master/.travis.yml) es el fichero de configuración para la integración continua.
 Al principio del fichero, indico con:
 ```bash
@@ -67,6 +67,9 @@ Al final ejecuto el test en el contenedor Docker:
 $ script:
     - docker run -t -v `pwd`:/test wolfye98/proyecto_iv_bate
 ```
+
+### Shippable:
+
 
 ## Autor:
 - [Bate Ye](https://github.com/WolfYe98)
