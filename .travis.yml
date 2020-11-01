@@ -10,9 +10,6 @@ services:
 #Estas son las preinstalaciones, que traen la imagen de docker, instalan las dependencias e instala gulp.
 before_install:
   - docker pull wolfye98/proyecto_iv_bate
-  - npm install
-  - npm install -g gulp
 #Ejecución de los test en local y en docker container.
 script:
-  - gulp test
   - docker run -t -v `pwd`:/test wolfye98/proyecto_iv_bate
