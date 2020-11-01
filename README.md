@@ -90,7 +90,7 @@ $ node_js:
   - "10"
   - "14"
 ```
-Finalmente, indico que instalen las dependencias y el task runner, y al final que ejecute los tests:
+Finalmente, indico que instalen las dependencias y el task runner, y después ejecuta los tests:
 ```bash
 $ build:
     ci:
