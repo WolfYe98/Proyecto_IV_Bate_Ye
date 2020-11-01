@@ -8,7 +8,7 @@ services:
   - docker
 build:
   pre_ci:
-    - docker pull
+    - docker pull wolfye98/proyecto_iv_bate
 
   pre_ci_boot:
     image_name: wolfye98/proyecto_iv_bate    ##replace with your repo and image name
@@ -20,5 +20,4 @@ build:
     - npm install
     - npm install -g gulp
     - gulp test
-    - docker pull wolfye98/proyecto_iv_bate
     - docker run -t -v `pwd`:/test wolfye98/proyecto_iv_bate
