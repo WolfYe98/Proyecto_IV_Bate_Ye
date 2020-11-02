@@ -1,4 +1,5 @@
 var fs=require('fs');
+var BodyPartLevel = require('./bodypartlevel.js')
 
 class Database{
   /**
@@ -181,6 +182,26 @@ class Database{
           throw err;
         }
       });
+    }
+  }
+  /**
+  * @function getBodyPartArray
+  * @summary Método que devuelve un array de objetos tipo BodyPartLevel
+  * @author Bate Ye
+  * @param {string} styleName Es el nombre del estilo de baile que queremos saber sus usos del cuerpo.
+  * @returns {undefined} Devuelve undefined si no existe body del estilo.
+  */
+  getBodyPartArray(style){
+    if(typeof this.data[style]["body"] === "object"){
+      var array = new Array();
+      this.data["hiphop"]["body"].forEach(function (element, index, vector){
+        var bpart = new BodyPartLevel(element, style);
+        array.push(bpart);
+      });
+      return array;
+    }
+    else{
+      return undefined;
     }
   }
 }
