@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Testing GHCR Image
 
 on: [push]
 
@@ -10,4 +10,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: tests
-        run: docker run -t -v `pwd`:/test wolfye98/proyecto_iv_bate
+        run: docker run -t -v `pwd`:/test ghcr.io/wolfye98/proyecto_iv_bate
