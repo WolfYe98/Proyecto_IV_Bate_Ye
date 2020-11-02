@@ -1,5 +1,6 @@
 entidad:
   - app/database.js
+  - app/bodypartlevel.js
 lenguaje:
   - node
 test:
