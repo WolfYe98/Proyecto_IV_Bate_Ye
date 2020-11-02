@@ -1,11 +1,39 @@
 var expect = require('chai').expect;
 var Database = require('../app/database.js');
 var path = require('path');
+var BodyPartLevel = require('../app/bodypartlevel.js');
 
+//Testeando la clase BodyPartLevel
+describe('Testing BodyPartLevel Class',function(){
+  var bpart = new BodyPartLevel('pecho', 'hiphop');
+  describe('Testing getBodyPart Function',function(){
+    it('Should return `pecho` string',function(){
+      expect(bpart.getBodyPart()).to.equal('pecho');
+    });
+  });
+  describe('Testing getUseLevel Function',function(){
+    it('Should return a number',function(){
+      expect(bpart.getUseLevel()).to.be.a('number');
+    });
+  });
+  describe('Testing setBodyPart Function',function(){
+    it('Should change the bodyPart to `cadera`',function(){
+      bpart.setBodyPart('cadera');
+      expect(bpart.getBodyPart()).to.equal('cadera');
+    });
+  });
+  describe('Testing setUseLevel Function',function(){
+    it('Should change the useLevel to 0',function(){
+      bpart.setUseLevel(0);
+      expect(bpart.getUseLevel()).to.equal(0);
+    });
+  });
+});
 
+//Testeando la clase database
 describe('Testing Database Class',function(){
   var db = new Database(undefined);
-  
+
   describe('Test getStyles function',function(){
     it('Should return an array',function(){
       expect(db.getStyles()).to.be.a('array');
@@ -63,6 +91,17 @@ describe('Testing Database Class',function(){
         }
       };
       expect(JSON.stringify(db.data).toLowerCase()).to.equal(JSON.stringify(esperado).toLowerCase());
+    });
+  });
+
+  describe('Testing getBodyPartArray function',function(){
+    it('Should return an array',function(){
+      expect(db.getBodyPartArray("hiphop")).to.be.a("array");
+    });
+    it('Should have only BodyPartLevel objects',function(){
+      db.getBodyPartArray("hiphop").forEach(function(e,i,array){
+        expect(e).to.be.an.instanceof(BodyPartLevel);
+      });
     });
   });
 });
