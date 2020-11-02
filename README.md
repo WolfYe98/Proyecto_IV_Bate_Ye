@@ -32,9 +32,9 @@ En [este fichero](docs/integraciondocker.md) explico lo que he hecho para realiz
 
 ## Integración continua:
 ### Travis:
-[Travis](https://travis-ci.org) es un servicio que el profesor ha recomendado, es un servicio de integración continua famosa, con buena documentación y la estructura de su archivo de configuración es sencilla de entender.
+[Travis](https://travis-ci.com) es un servicio que el profesor ha recomendado, es un servicio de integración continua famosa, con buena documentación y la estructura de su archivo de configuración es sencilla de entender.
 Es el primer servicio de integración continua que he configurado. Para utilizarlo simplemente tienes que darte de alta en
-[Travis](https://travis-ci.org) y activar el repositorio (directamente en Travis).
+[Travis](https://travis-ci.com) y activar el repositorio (directamente en Travis).
 Después de activar el repositorio, tienes que configurar un fichero .travis.yml que indica las acciones que se realizarán en Travis.
 
 #### Mi fichero .travis.yml:
