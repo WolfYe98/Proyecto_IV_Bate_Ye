@@ -21,3 +21,11 @@
 ## Hito 3:
   - Entender [Docker](https://www.docker.com)
   - Crear mi [Dockerfile](https://github.com/WolfYe98/Proyecto_IV_Bate/blob/master/Dockerfile)
+  - Crear mis [Github Actions](https://github.com/WolfYe98/Proyecto_IV_Bate/tree/master/.github/workflows) para Docker y para GHCR
+
+## Hito 4:
+  - Entender el concepto de integración continua
+  - Darme de alta en [Travis](https://travis-ci.com).
+  - Configurar mi [archivo de configuración de Travis](https://github.com/WolfYe98/Proyecto_IV_Bate/blob/master/.travis.yml)
+  - Darme de alta en [Shippable](https://app.shippable.com)
+  - Configurar mi [archivo de configuración de Shippable](https://github.com/WolfYe98/Proyecto_IV_Bate/blob/master/shippable.yml)
