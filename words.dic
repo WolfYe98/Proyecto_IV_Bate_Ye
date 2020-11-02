@@ -1330,3 +1330,7 @@ packages
 Registry
 milestones
 groupadd
+runner
+shippable
+travis
+Preinstalo
