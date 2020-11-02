@@ -188,7 +188,7 @@ class Database{
   * @function getBodyPartArray
   * @summary Método que devuelve un array de objetos tipo BodyPartLevel
   * @author Bate Ye
-  * @param {string} styleName Es el nombre del estilo de baile que queremos saber sus usos del cuerpo.
+  * @param {string} style Es el nombre del estilo de baile que queremos saber sus usos del cuerpo.
   * @returns {undefined} Devuelve undefined si no existe body del estilo.
   */
   getBodyPartArray(style){
