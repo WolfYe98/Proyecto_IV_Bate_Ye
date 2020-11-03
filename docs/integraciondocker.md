@@ -1,4 +1,4 @@
-# Integración continua Docker
+# Automatización Docker
 - [Dockerhub](https://hub.docker.com/repository/docker/wolfye98/proyecto_iv_bate): En Dockerhub, he configurado que se construya automáticamente cada vez que realizo un push en git, siguiendo los pasos de esta [documentación](https://docs.docker.com/docker-hub/builds/).
 - [Github Container Registry](https://github.com/users/WolfYe98/packages/container/package/proyecto_iv_bate): Este es el registro alternativo que he decidido usarlo, ya que es el recomendado por el profesor y solamente tienes que seguir los pasos que te aparecen en Github Packages.
 - He configurado un [action](https://github.com/WolfYe98/Proyecto_IV_Bate/blob/master/.github/workflows/dockergit.yml) para que se la imagen se actualice automáticamente en Github Packages. Este action se activa cada vez que realicemos un push. Y en Dockerhub, se actualiza automáticamente en cuanto hayas enlazado tu repositorio de Dockerhub con el repositorio que tienes en Github.
