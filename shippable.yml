@@ -15,7 +15,7 @@ build:
       - -v /test
   ci:
     - docker pull wolfye98/proyecto_iv_bate
-    - cp $SHIPPABLE_BUILD_DIR/deploy/docker/containers/prueba/test /test/
+    - ls $SHIPPABLE_BUILD_DIR/
     - docker run --name prueba -t -v `pwd`:/test wolfye98/proyecto_iv_bate
     - npm install
     - npm install -g gulp
