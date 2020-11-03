@@ -12,10 +12,10 @@ sevices:
 build:
   pre-ci-boot:
     options:
-      - -v $SHIPPABLE_BUILD_DIR:$SHIPPABLE_BUILD_DIR
+      - -v /test
   ci:
     - docker pull wolfye98/proyecto_iv_bate
-    - docker run -t wolfye98/proyecto_iv_bate ls
+    - docker run -t -v `pwd`:/test wolfye98/proyecto_iv_bate
     - npm install
     - npm install -g gulp
     - gulp test
