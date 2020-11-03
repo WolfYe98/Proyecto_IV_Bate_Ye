@@ -16,7 +16,7 @@ build:
   ci:
     - docker pull wolfye98/proyecto_iv_bate
     - cp $SHIPPABLE_BUILD_DIR/test/database-chai.js /test
-    - cp $SHIPPABLE_BUILD_DIR/gulpfile.js /test
+    - cp $SHIPPABLE_BUILD_DIR/gulpfile.js .
     - docker run -t -v `pwd`:/test wolfye98/proyecto_iv_bate
     - npm install
     - npm install -g gulp
