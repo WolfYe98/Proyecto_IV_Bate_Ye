@@ -27,7 +27,7 @@ En [este fichero](docs/dockerimagebase.md) explico la imagen base que he cogido 
 [Aquí dejo el enlace de explicación a mi Dockerfile, y también explico cómo descargar mi imagen de Docker](docs/dockerfile.md)
 
 
-### Integración continua Docker
+### Automatización Docker
 En [este fichero](docs/integraciondocker.md) explico lo que he hecho para realizar integración continua de Docker.
 
 ## Integración continua:
