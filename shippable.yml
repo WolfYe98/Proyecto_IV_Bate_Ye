@@ -4,9 +4,18 @@ language: node_js
 node_js:
   - "10"
   - "14"
-#Instalo las dependencias, el gestor de tareas y ejecuto los tests.  
+
+sevices:
+  - docker
+
+#Instalo las dependencias, el gestor de tareas y ejecuto los tests.
 build:
+  pre-ci-boot:
+    options:
+      - -v $SHIPPABLE_BUILD_DIR:$SHIPPABLE_BUILD_DIR
   ci:
+    - docker pull wolfye98/proyecto_iv_bate
+    - docker run -t -v `pwd`:/test wolfye98/proyecto_iv_bate
     - npm install
     - npm install -g gulp
     - gulp test
