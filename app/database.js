@@ -20,21 +20,30 @@ class Database{
       }
     }
     else{
-      this.data = {
+      this.data =
+      {
         "hiphop": {
           "year": 1970,
           "founder": "DJ Kool Herc",
           "city": "New York",
           "history": "Hip-Hop en la actualidad lo conocen como un estilo de danza urbana freestyle, pero en realidad Hip-Hop es una cultura generada en el sur de Bronx, New York en los años 70s por los jovenes afroamericanos y LatinoAmericanos. En un principio Hip-Hop se refería a 4 grandes elementos: rap, breaking, graffiti y djing. Durante los 70s, 80s, el único estilo de baile del Hip-Hop era solamente breaking, hasta que empezaron a desarrollar más pasos de baile sin movimientos en el suelo (top-rocks), y entonces nació el estilo de baile llamado Hip-Hop",
           "description": "Hip-Hop es un baile que requiere muchos bounces (rebotes), es más, lo primero que se enseña en Hip-Hop son los 2 tipos de bounce que hay, el up y el down. En Hip-Hop es muy importante que nunca se olviden del bounce, ya que es lo fundamental de este estilo. Requiere muchas prácticas para dominar el bounce hasta meterlo en pasos más complejos como el slide, ball change, kick ball change etc... Otra parte muy importante es la musicalidad, es decir, saber contar los 8s de la música. Hoy en día, las personas suelen bailar Hip-Hop con música de diferentes estilos, pero en su inicio, Hip-Hop siempre se bailaba con rap old school.",
-          "body":["piernas","pecho","cadera"]
+          "body":["piernas","pecho","cadera","brazos"]
+        },
+        "krump": {
+          "year": 2000,
+          "founder": "Tight Eyez",
+          "city": "Los Angeles",
+          "history": "",
+          "description": "",
+          "body":["brazos","piernas","cadera"]
         }
       };
     }
   }
     /**
     * @function getStyles
-    * @summary Método para consultar los estilos de baile.
+    * @summary Método que devuelve los estilos de baile.
     * @author Bate Ye
     * @returns {Array} Devuelve un array con los nombres de los diferentes estilos de baile.
     */
