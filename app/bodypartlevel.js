@@ -2,7 +2,7 @@
 class BodyPartLevel{
   /**
   * @function Constructor
-  * @summary Constructor que recibe el bodyPart y el estilo del baile
+  * @summary Constructor que recibe el bodyPart y el estilo del baile o un numero que será el uso de esa parte del cuerpo. (Si recibe el estilo devuelve la intensidad del estilo y sino es un objeto sin estilo).
   * @author Bate Ye
   * @param {string} style Es el nombre del estilo de baile que queremos saber sus usos del cuerpo.
   */
@@ -16,12 +16,18 @@ class BodyPartLevel{
       }
     }
     this.bodyPart = bodyPart.toLowerCase();
-    this.style = style;
-    if(this.levels[style.toLowerCase()][this.bodyPart] != undefined){
-      this.useLevel = this.levels[style.toLowerCase()][this.bodyPart];
+    if(typeof style === 'string'){
+      this.style = style;
+      if(this.levels[style.toLowerCase()][this.bodyPart] != undefined){
+        this.useLevel = this.levels[style.toLowerCase()][this.bodyPart];
+      }
+      else{
+        this.useLevel = -1;
+      }
     }
-    else{
-      this.useLevel = -1;
+    else if(typeof style === 'number'){
+      this.useLevel = style;
+      this.style ="";
     }
   }
   /**
@@ -56,7 +62,7 @@ class BodyPartLevel{
   }
   /**
   * @function setUseLevel
-  * @summary Método que cambia el nivel de uso de la parte del cuerpo
+  * @summary Método que cambia el nivel de uso de la parte del cuerpo del objeto
   * @param {number} level Es el nuevo nivel de uso
   * @author Bate Ye
   */
