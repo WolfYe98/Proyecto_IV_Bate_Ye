@@ -13,13 +13,21 @@ class BodyPartLevel{
           "piernas":2,
           "pecho": 1,
           "brazos": 1
+      },
+      "krump":{
+          "brazos":3,
+          "piernas":3,
+          "pecho": 1,
+          "cadera": 1
       }
     }
     this.bodyPart = bodyPart.toLowerCase();
     if(typeof style === 'string'){
       this.style = style;
-      if(this.levels[style.toLowerCase()][this.bodyPart] != undefined){
-        this.useLevel = this.levels[style.toLowerCase()][this.bodyPart];
+      if(this.levels[style.toLowerCase()] != undefined){
+        if(this.bodyPart in this.levels[style.toLowerCase()]){
+          this.useLevel = this.levels[style.toLowerCase()][this.bodyPart];
+        }
       }
       else{
         this.useLevel = -1;
@@ -47,6 +55,10 @@ class BodyPartLevel{
   */
   getUseLevel(){
     return this.useLevel;
+  }
+
+  getStyleBodyPartIntensity(){
+    return this.levels;
   }
   /**
   * @function setBodyPart
