@@ -28,6 +28,12 @@ describe('Testing BodyPartLevel Class',function(){
       expect(bpart.getUseLevel()).to.equal(0);
     });
   });
+  describe('Testing BodyPartLevel without style',function(){
+    var new_bpart = new BodyPartLevel('cadera', 10)
+    it('Should return 10 in getUseLevel',function(){
+      expect(new_bpart.getUseLevel()).to.equal(10);
+    });
+  });
 });
 
 //Testeando la clase database
