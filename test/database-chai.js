@@ -16,6 +16,25 @@ describe('Testing BodyPartLevel Class',function(){
       expect(bpart.getUseLevel()).to.be.a('number');
     });
   });
+  describe('Testing getStyleBodyPartIntensity Function',function(){
+    it('Should return an object',function(){
+      var level_esperado = {
+        "hiphop":{
+            "cadera":3,
+            "piernas":2,
+            "pecho": 1,
+            "brazos": 1
+        },
+        "krump":{
+            "brazos":3,
+            "piernas":3,
+            "pecho": 1,
+            "cadera": 1
+        }
+      }
+      expect(JSON.stringify(bpart.getStyleBodyPartIntensity()).toLowerCase()).to.equal(JSON.stringify(level_esperado).toLowerCase());
+    });
+  });
   describe('Testing setBodyPart Function',function(){
     it('Should change the bodyPart to `cadera`',function(){
       bpart.setBodyPart('cadera');
@@ -70,14 +89,23 @@ describe('Testing Database Class',function(){
           "description": "Esto es una prueba de inserción",
           "body":["Todo el cuerpo"]
         },
-        "hiphop": {
-          "year": 1970,
-          "founder": "DJ Kool Herc",
-          "city": "New York",
-          "history": "Hip-Hop en la actualidad lo conocen como un estilo de danza urbana freestyle, pero en realidad Hip-Hop es una cultura generada en el sur de Bronx, New York en los años 70s por los jovenes afroamericanos y LatinoAmericanos. En un principio Hip-Hop se refería a 4 grandes elementos: rap, breaking, graffiti y djing. Durante los 70s, 80s, el único estilo de baile del Hip-Hop era solamente breaking, hasta que empezaron a desarrollar más pasos de baile sin movimientos en el suelo (top-rocks), y entonces nació el estilo de baile llamado Hip-Hop",
-          "description": "Hip-Hop es un baile que requiere muchos bounces (rebotes), es más, lo primero que se enseña en Hip-Hop son los 2 tipos de bounce que hay, el up y el down. En Hip-Hop es muy importante que nunca se olviden del bounce, ya que es lo fundamental de este estilo. Requiere muchas prácticas para dominar el bounce hasta meterlo en pasos más complejos como el slide, ball change, kick ball change etc... Otra parte muy importante es la musicalidad, es decir, saber contar los 8s de la música. Hoy en día, las personas suelen bailar Hip-Hop con música de diferentes estilos, pero en su inicio, Hip-Hop siempre se bailaba con rap old school.",
-          "body":["piernas","pecho","cadera"]
-        }
+
+          "hiphop": {
+            "year": 1970,
+            "founder": "DJ Kool Herc",
+            "city": "New York",
+            "history": "Hip-Hop en la actualidad lo conocen como un estilo de danza urbana freestyle, pero en realidad Hip-Hop es una cultura generada en el sur de Bronx, New York en los años 70s por los jovenes afroamericanos y LatinoAmericanos. En un principio Hip-Hop se refería a 4 grandes elementos: rap, breaking, graffiti y djing. Durante los 70s, 80s, el único estilo de baile del Hip-Hop era solamente breaking, hasta que empezaron a desarrollar más pasos de baile sin movimientos en el suelo (top-rocks), y entonces nació el estilo de baile llamado Hip-Hop",
+            "description": "Hip-Hop es un baile que requiere muchos bounces (rebotes), es más, lo primero que se enseña en Hip-Hop son los 2 tipos de bounce que hay, el up y el down. En Hip-Hop es muy importante que nunca se olviden del bounce, ya que es lo fundamental de este estilo. Requiere muchas prácticas para dominar el bounce hasta meterlo en pasos más complejos como el slide, ball change, kick ball change etc... Otra parte muy importante es la musicalidad, es decir, saber contar los 8s de la música. Hoy en día, las personas suelen bailar Hip-Hop con música de diferentes estilos, pero en su inicio, Hip-Hop siempre se bailaba con rap old school.",
+            "body":["piernas","pecho","cadera","brazos"]
+          },
+          "krump": {
+            "year": 2000,
+            "founder": "Tight Eyez",
+            "city": "Los Angeles",
+            "history": "",
+            "description": "",
+            "body":["brazos","piernas","cadera"]
+          }
       };
       expect(JSON.stringify(db.data).toLowerCase()).to.equal(JSON.stringify(esperado).toLowerCase());
     });
@@ -93,7 +121,15 @@ describe('Testing Database Class',function(){
           "city": "New York",
           "history": "Hip-Hop en la actualidad lo conocen como un estilo de danza urbana freestyle, pero en realidad Hip-Hop es una cultura generada en el sur de Bronx, New York en los años 70s por los jovenes afroamericanos y LatinoAmericanos. En un principio Hip-Hop se refería a 4 grandes elementos: rap, breaking, graffiti y djing. Durante los 70s, 80s, el único estilo de baile del Hip-Hop era solamente breaking, hasta que empezaron a desarrollar más pasos de baile sin movimientos en el suelo (top-rocks), y entonces nació el estilo de baile llamado Hip-Hop",
           "description": "Hip-Hop es un baile que requiere muchos bounces (rebotes), es más, lo primero que se enseña en Hip-Hop son los 2 tipos de bounce que hay, el up y el down. En Hip-Hop es muy importante que nunca se olviden del bounce, ya que es lo fundamental de este estilo. Requiere muchas prácticas para dominar el bounce hasta meterlo en pasos más complejos como el slide, ball change, kick ball change etc... Otra parte muy importante es la musicalidad, es decir, saber contar los 8s de la música. Hoy en día, las personas suelen bailar Hip-Hop con música de diferentes estilos, pero en su inicio, Hip-Hop siempre se bailaba con rap old school.",
-          "body":["piernas","pecho","cadera"]
+          "body":["piernas","pecho","cadera","brazos"]
+        },
+        "krump": {
+          "year": 2000,
+          "founder": "Tight Eyez",
+          "city": "Los Angeles",
+          "history": "",
+          "description": "",
+          "body":["brazos","piernas","cadera"]
         }
       };
       expect(JSON.stringify(db.data).toLowerCase()).to.equal(JSON.stringify(esperado).toLowerCase());
