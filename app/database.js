@@ -194,7 +194,7 @@ class Database{
   getBodyPartArray(style){
     if(typeof this.data[style]["body"] === "object"){
       var array = new Array();
-      this.data["hiphop"]["body"].forEach(function (element, index, vector){
+      this.data[style]["body"].forEach(function (element, index, vector){
         var bpart = new BodyPartLevel(element, style);
         array.push(bpart);
       });
