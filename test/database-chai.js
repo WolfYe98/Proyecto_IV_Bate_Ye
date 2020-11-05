@@ -2,6 +2,7 @@ var expect = require('chai').expect;
 var Database = require('../app/database.js');
 var path = require('path');
 var BodyPartLevel = require('../app/bodypartlevel.js');
+var recommendation = require('../app/recommendation.js');
 
 //Testeando la clase BodyPartLevel
 describe('Testing BodyPartLevel Class',function(){
@@ -145,5 +146,12 @@ describe('Testing Database Class',function(){
         expect(e).to.be.an.instanceof(BodyPartLevel);
       });
     });
+  });
+});
+
+//Testeando la función recommendation
+describe('Testing recommendation(array) function',function(){
+  it('Should return KRUMP string',function(){
+    expect(recommendation.recommendation([new BodyPartLevel('cadera', 2),new BodyPartLevel('pecho', 0)])).to.equal('KRUMP');
   });
 });
