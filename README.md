@@ -52,7 +52,7 @@ $ before_install:
     - docker pull wolfye98/proyecto_iv_bate
 ```
 
-Al final ejecuto el test en el contenedor Docker:
+Al final ejecuto el test con el contenedor Docker:
 ```bash
 $ script:
     - docker run -t -v `pwd`:/test wolfye98/proyecto_iv_bate
