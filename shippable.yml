@@ -9,7 +9,8 @@ services:
   - docker
 build:
   ci:
-    - npm install
-    - npm install -g gulp
-    - gulp test
-    - docker run -t -v $SHIPPABLE_BUILD_DIR:/test wolfye98/proyecto_iv_bate
+  #  - npm install
+  #  - npm install -g gulp
+  #  - gulp test
+    - echo $SHIPPABLE_BUILD_DIR
+    - docker run -t -v $SHIPPABLE_BUILD_DIR wolfye98/proyecto_iv_bate
