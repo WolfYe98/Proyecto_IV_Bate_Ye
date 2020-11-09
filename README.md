@@ -58,7 +58,7 @@ $ services:
   - docker
 ```
 
-Preinstalo el contenedor docker con:
+Descargo mi imagen docker con:
 ```bash
 $ before_install:
     - docker pull wolfye98/proyecto_iv_bate
