@@ -34,23 +34,11 @@ En [este fichero](docs/integraciondocker.md) explico lo que he hecho para realiz
 ### Travis:
 [Travis](https://travis-ci.com) es un servicio que el profesor ha recomendado, es un servicio de integración continua famosa, con buena documentación y la estructura de su archivo de configuración es sencilla de entender.
 Es el primer servicio de integración continua que he configurado. Para utilizarlo simplemente tienes que darte de alta en
-[Travis](https://travis-ci.com) y activar el repositorio (directamente en Travis).
+[Travis](https://travis-ci.com) y activar el repositorio (directamente en Travis)([Sigue estos pasos](https://travis-ci.com/getting_started)).
 Después de activar el repositorio, tienes que configurar un fichero .travis.yml que indica las acciones que se realizarán en Travis.
 
 #### Mi fichero .travis.yml:
 [Este fichero .travis.yml](https://github.com/WolfYe98/Proyecto_IV_Bate/blob/master/.travis.yml) es el fichero de configuración para la integración continua.
-Al principio del fichero, indico con:
-```bash
-$ language: node_js
-```
-que voy a utilizar node.js.
-
-A continuación indico que voy a probar mi proyecto en 2 versiones de node con esta línea:
-```bash
-$ node_js:
-  - "10"
-  - "14"
-```
 
 Como vamos a utilizar el contenedor de Docker, indico que quiero usar el servicio Docker así:
 ```bash
@@ -72,7 +60,7 @@ $ script:
 
 ### Shippable:
 He elegido [Shippable](https://app.shippable.com) como mi segundo servicio de integración continua por varios motivos:
-* Es muy parecido a Travis, sencillo de usar, simplemente tienes que darte de alta en la página web y activar el repositorio allí en la página.
+* Es muy parecido a Travis, sencillo de usar, simplemente tienes que darte de alta en la página web y activar el repositorio allí en la página ([Sigue estos pasos](http://docs.shippable.com/ci/enable-project/)).
 * Tiene una interfaz que muestra muy bien todos los pasos de la construcción del repositorio.
 * Es muy rápido, al menos hasta ahora no ha tardado más de 3 minutos en cada commit.
 * El archivo de configuración es muy muy parecido al archivo de configuración de Travis, de esta forma, he podido configurarlo mucho más rápido.
