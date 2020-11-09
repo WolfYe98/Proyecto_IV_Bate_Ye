@@ -40,7 +40,7 @@ Después de activar el repositorio, tienes que configurar un fichero .travis.yml
 #### Mi fichero .travis.yml:
 [Este fichero .travis.yml](https://github.com/WolfYe98/Proyecto_IV_Bate/blob/master/.travis.yml) es el fichero de configuración para la integración continua.
 
-Como vamos a utilizar el contenedor de Docker, indico que quiero usar el servicio Docker así:
+Como vamos a utilizar Docker, indico que quiero usar el servicio Docker así:
 ```bash
 $ services:
   - docker
