@@ -12,9 +12,8 @@ build:
     image_name: wolfye98/proyecto_iv_bate
     image_tag: latest
     pull: true
-    options: "-e HOME=/root -v $SHIPPABLE_BUILD_DIR:$SHIPPABLE_BUILD_DIR"
+    options: "-t -v `pwd`:/test wolfye98/proyecto_iv_bate"
   ci:
     - npm install
     - npm install -g gulp
     - gulp test
-    - docker run -t -v `pwd`:/test wolfye98/proyecto_iv_bate
