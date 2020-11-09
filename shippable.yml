@@ -8,11 +8,6 @@ node_js:
 services:
   - docker
 build:
-  pre_ci_boot:
-    image_name: wolfye98/proyecto_iv_bate
-    image_tag: latest
-    pull: true
-
   ci:
     - npm install
     - npm install -g gulp
