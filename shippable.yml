@@ -13,4 +13,5 @@ build:
   #  - npm install -g gulp
   #  - gulp test
     - echo $SHIPPABLE_BUILD_DIR
+    - cat $SHIPPABLE_BUILD_DIR/gulpfile.js
     - docker run -t -v $SHIPPABLE_BUILD_DIR wolfye98/proyecto_iv_bate
