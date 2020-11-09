@@ -12,7 +12,7 @@ build:
     image_name: wolfye98/proyecto_iv_bate
     image_tag: latest
     pull: true
-    options: "-t -v `pwd`:/test wolfye98/proyecto_iv_bate"
+
   ci:
     - npm install
     - npm install -g gulp
