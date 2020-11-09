@@ -1,6 +1,3 @@
-#Uso el lenguaje node
-
-#Las versiones que voy a utilizar del lenguaje serán el 10 y el 14
 #Indicamos que usaremos un servicio docker, para usar el contenedor después.
 services:
   - docker
