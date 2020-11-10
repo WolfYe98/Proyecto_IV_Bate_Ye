@@ -11,7 +11,7 @@ RUN npm install gulp-install
 #Copiamos ficheros de dependencias e instalamos las dependencias
 
 COPY package*.json ./
-RUN gulp install
+RUN npm install
 
 #Eliminamos el fichero de dependencias
 RUN rm package*.json
