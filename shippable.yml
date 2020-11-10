@@ -8,11 +8,12 @@ node_js:
 services:
   - docker
 build:
+  pre_ci:
+    - docker run -t -v ´pwd´:/test wolfye98/proyecto_iv_bate
   ci:
   #  - npm install
   #  - npm install -g gulp
   #  - gulp test
     - echo $SHIPPABLE_BUILD_DIR
     - cat $SHIPPABLE_BUILD_DIR/gulpfile.js
-    - ls $SHIPPABLE_BUILD_DIR/test
   #  - docker run -t -v $SHIPPABLE_BUILD_DIR wolfye98/proyecto_iv_bate
