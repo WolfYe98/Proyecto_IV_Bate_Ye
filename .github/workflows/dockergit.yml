@@ -15,5 +15,5 @@ jobs:
           registry: ghcr.io
           repository: wolfye98/proyecto_iv_bate
           tag_with_ref: true
-      - name: Push
-        run: docker push ghcr.io/wolfye98/proyecto_iv_bate
+          push: true
+          tags: ghcr.io/wolfye98/proyecto_iv_bate:latest
