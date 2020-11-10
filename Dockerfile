@@ -16,7 +16,7 @@ RUN rm package*.json
 
 #Instalamos gulp
 RUN npm install -g gulp
-RUN npm install gulp-install
+RUN npm install -g gulp-install
 
 
 #Cambiamos al usuario bateye ya que no necesitamos permisos root para ejecutar los tests.
