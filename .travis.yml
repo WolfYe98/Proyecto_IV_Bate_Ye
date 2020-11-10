@@ -1,7 +1,7 @@
 language: minimal
 os:
   - linux
-  - osx
+  - windows
 #Ejecución de los test en docker container.
 script:
   - docker run -t -v $TRAVIS_BUILD_DIR:/test ghcr.io/wolfye98/proyecto_iv_bate
