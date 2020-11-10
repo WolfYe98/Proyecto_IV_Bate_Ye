@@ -6,6 +6,10 @@ node_js:
   - "14"
 #Instalo las dependencias, el gestor de tareas y ejecuto los tests.
 build:
+  #Evito que se tenga que instalar node_modules en cada push guardandolo en un cache
+  cache: true
+  cache_dir_list:
+    - $SHIPPABLE_BUILD_DIR/node_modules
   ci:
     - npm install -g gulp
     - npm install gulp-install
