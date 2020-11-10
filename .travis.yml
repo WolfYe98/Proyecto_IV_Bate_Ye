@@ -6,8 +6,6 @@ jobs:
       dist: focal
     - os: linux
       dist: xenial
-    - os: osx
-      osx_image: xcode7.2
 #Ejecución de los test en docker container.
 script:
   - docker run -t -v $TRAVIS_BUILD_DIR:/test ghcr.io/wolfye98/proyecto_iv_bate
