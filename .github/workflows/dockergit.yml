@@ -7,19 +7,11 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
-      #- name: Push to Github
-      #  uses: docker/build-push-action@v2
-      #  with:
-      #    username: ${{ github.actor }}
-      #    password: ${{ secrets.GITHUB_TOKEN }}
-      #    registry: ghcr.io
-      #    repository: wolfye98/proyecto_iv_bate
-      #    tag_with_ref: true
-      - name: Login
-        uses: docker/login-action@v1
+      - name: Push to Github
+        uses: docker/build-push-action@v2
         with:
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
           registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.GH_REGISTRY_TOKEN }}
-      - name: Pushing to Github
-        run: docker build -t ghcr.io/wolfye98/proyecto_iv_bate . && docker push ghcr.io/wolfye98/proyecto_iv_bate:latest
+          repository: wolfye98/proyecto_iv_bate
+          tag_with_ref: true
