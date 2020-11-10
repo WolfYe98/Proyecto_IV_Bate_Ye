@@ -1,9 +1,10 @@
+language: minimal
 #Indicamos que usaremos un servicio docker, para usar el contenedor después.
 services:
   - docker
-#Estas son las preinstalaciones, que traen la imagen de docker, instalan las dependencias e instala gulp.
-before_install:
-  - docker pull wolfye98/proyecto_iv_bate
+env:
+  - $HOME_DIR = TRAVIS_BUILD_DIR
 #Ejecución de los test en local y en docker container.
 script:
+  - ls $HOME_DIR
   - docker run -t -v `pwd`:/test wolfye98/proyecto_iv_bate
