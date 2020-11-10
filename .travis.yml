@@ -2,10 +2,6 @@ language: minimal
 os:
   - linux
   - osx
-
-#Indicamos que usaremos un servicio docker, para usar el contenedor después.
-services:
-  - docker
-#Ejecución de los test en local y en docker container.
+#Ejecución de los test en docker container.
 script:
-  - docker run -t -v $TRAVIS_BUILD_DIR:/test wolfye98/proyecto_iv_bate
+  - docker run -t -v $TRAVIS_BUILD_DIR:/test ghcr.io/wolfye98/proyecto_iv_bate
