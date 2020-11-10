@@ -7,10 +7,9 @@ jobs:
       dist: focal
     - os: linux
       dist: xenial
+#Defino una variable de entorno que tendrá la ruta al directorio de trabajo
 env:
-  #probando interpolar variables
   - HOME_DIR: ${HOME}/build/WolfYe98/Proyecto_IV_Bate
 #Ejecución de los test en docker container.
 script:
-  - echo $HOME_DIR
   - docker run -t -v $HOME_DIR:/test ghcr.io/wolfye98/proyecto_iv_bate
