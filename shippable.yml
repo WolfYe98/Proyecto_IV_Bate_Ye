@@ -10,6 +10,7 @@ build:
   cache: true
   cache_dir_list:
     - $SHIPPABLE_BUILD_DIR/node_modules
+  #Instalo el gestor de tareas gulp, y también el módulo de install para que pueda instalar dependencias
   ci:
     - npm install -g gulp
     - npm install gulp-install
