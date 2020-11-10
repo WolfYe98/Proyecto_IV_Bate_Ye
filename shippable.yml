@@ -7,7 +7,6 @@ node_js:
 #Instalo las dependencias, el gestor de tareas y ejecuto los tests.
 build:
   ci:
-    - npm install
     - npm install -g gulp
+    - gulp install
     - gulp test
-    - docker run -t -v $SHIPPABLE_BUILD_DIR:/test wolfye98/proyecto_iv_bate:latest
