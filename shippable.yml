@@ -8,8 +8,11 @@ node_js:
 services:
   - docker
 build:
+  pre_ci_boot:
+    image_name: wolfye98/proyecto_iv_bate
+    image_tag: latest
+    pull: true
   pre_ci:
-    - ls `pwd`
     - docker run -t -v `pwd`:/test wolfye98/proyecto_iv_bate
   ci:
   #  - npm install
