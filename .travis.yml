@@ -6,5 +6,4 @@ env:
   - $HOME_DIR = TRAVIS_BUILD_DIR
 #Ejecución de los test en local y en docker container.
 script:
-  - ls $HOME_DIR
-  - docker run -t -v `pwd`:/test wolfye98/proyecto_iv_bate
+  - docker run -t -v $HOME_DIR:/test wolfye98/proyecto_iv_bate
