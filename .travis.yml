@@ -7,6 +7,11 @@ jobs:
       dist: focal
     - os: linux
       dist: xenial
+env:
+  - HOME_DIR: $HOME
 #Ejecución de los test en docker container.
 script:
+  - echo $HOME_DIR
+  - echo $HOME
+  - echo $TRAVIS_BUILD_DIR
   - docker run -t -v $TRAVIS_BUILD_DIR:/test ghcr.io/wolfye98/proyecto_iv_bate
