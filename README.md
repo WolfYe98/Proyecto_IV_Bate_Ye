@@ -55,13 +55,19 @@ $ jobs:
     - os: linux
       dist: xenial
 ```
+Ahora defino una variable de entorno que guarda la ruta del directorio de trabajo:
+```bash
+$ env:
+  - HOME_DIR: ${HOME}/build/WolfYe98/Proyecto_IV_Bate
+```
+He visto que ```bash $TRAVIS_BUILD_DIR ``` es la ruta absoluta del directorio donde el repositorio se está construyendo, es la misma que ```bash $HOME_DIR ``` en este caso, entonces se podría usar también.
 
 Al final ejecuto el test con el contenedor Docker:
 ```bash
 $ script:
-    - docker run -t -v $TRAVIS_BUILD_DIR:/test wolfye98/proyecto_iv_bate
+    - docker run -t -v $HOME_DIR:/test wolfye98/proyecto_iv_bate
 ```
-$TRAVIS_BUILD_DIR nos especifica la ruta absoluta del directorio de trabajo.
+
 
 ### Shippable:
 He elegido [Shippable](https://app.shippable.com) como mi segundo servicio de integración continua por varios motivos:
