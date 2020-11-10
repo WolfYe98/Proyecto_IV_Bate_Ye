@@ -67,7 +67,7 @@ Al final ejecuto el test con el contenedor Docker:
 $ script:
     - docker run -t -v $HOME_DIR:/test wolfye98/proyecto_iv_bate
 ```
-
+```docker run``` descarga la imagen si dicha imagen no está en el local, entonces no tenemos que usar pull.
 
 ### Shippable:
 He elegido [Shippable](https://app.shippable.com) como mi segundo servicio de integración continua por varios motivos:
