@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "chai": "^4.2.0",
+    "gulp-install": "^1.1.0",
     "gulp-jsdoc3": "^3.0.0",
     "gulp-mocha": "^7.0.2",
     "gulp-run": "^1.7.1",
