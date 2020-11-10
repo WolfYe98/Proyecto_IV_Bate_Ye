@@ -3,9 +3,10 @@ language: minimal
 services:
   - docker
 env:
-  - $HOME_DIR = TRAVIS_BUILD_DIR
+  - $HOME_DIR = $TRAVIS_BUILD_DIR
 #Ejecución de los test en local y en docker container.
 script:
-  - ls pwd
+  - echo $HOME_DIR
+  - echo $TRAVIS_BUILD_DIR
   - pwd
   - docker run -t -v $HOME_DIR:/test wolfye98/proyecto_iv_bate
