@@ -2,9 +2,6 @@ language: minimal
 #Indicamos que usaremos un servicio docker, para usar el contenedor después.
 services:
   - docker
-env:
-  - $DIR_TRABAJO=TRAVIS_BUILD_DIR
 #Ejecución de los test en local y en docker container.
 script:
-  - echo $DIR_TRABAJO
   - docker run -t -v $TRAVIS_BUILD_DIR:/test wolfye98/proyecto_iv_bate
