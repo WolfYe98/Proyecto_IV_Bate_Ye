@@ -11,7 +11,6 @@ build:
   cache_dir_list:
     - $SHIPPABLE_BUILD_DIR/node_modules
   ci:
-    - npm install -g gulp
-    #- npm install gulp-install
+    #- npm install -g gulp
     - gulp install
     - gulp test
