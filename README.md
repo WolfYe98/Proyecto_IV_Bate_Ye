@@ -46,7 +46,7 @@ $ language: minimal
 ```
 Esta imagen está optimizado para ser más rápido y para usar menos espacio de disco, ya que solamente contiene Docker, python, algunas herramientas de red, herramientas de control de versiones y herramientas esenciales. No contiene nada más.
 
-Ahora indico que se va a probar en dos distribuciones de linux, en [Focal](https://docs.travis-ci.com/user/reference/focal/) y en [Xenial](https://docs.travis-ci.com/user/reference/xenial/):
+Ahora indico que se va a probar en dos distribuciones de linux, en [Focal](https://docs.travis-ci.com/user/reference/focal/) y en [Xenial](https://docs.travis-ci.com/user/reference/xenial/), he intentado usar osx y windows pero parece ser que Travis no los apoya ([OSX](https://github.com/travis-ci/travis-ci/issues/5738), [Windows](https://travis-ci.community/t/docker-linux-containers-on-windows/301/8)):
 ```bash
 $ jobs:
   include:
@@ -85,7 +85,7 @@ $ node_js:
   - "10"
   - "14"
 ```
-En la construcción, indico que quiero tener un caché de node_modules, así no tienen que descargar las dependencias desde 0 por cada vez que haga un push:
+En la construcción, indico que quiero tener un caché de node_modules, así no tienen que descargar las dependencias desde 0 por cada vez que haga un push (después del primer push ya tendríamos el caché de node_modules guardado):
 ```bash
 $ cache: true
 $ cache_dir_list:
@@ -98,7 +98,7 @@ $ npm install -g gulp
 $ npm install gulp-install
 ```
 
-y ahora descargo las demás dependencias con el gestor de tareas y ejecuto los tests:
+y ahora instalo las dependencias con el gestor de tareas y ejecuto los tests:
 ```bash
 $ gulp install
 $ gulp test
