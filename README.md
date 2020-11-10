@@ -60,7 +60,7 @@ Ahora defino una variable de entorno que guarda la ruta del directorio de trabaj
 $ env:
   - HOME_DIR: ${HOME}/build/WolfYe98/Proyecto_IV_Bate
 ```
-He visto que ```bash $TRAVIS_BUILD_DIR ``` es la ruta absoluta del directorio donde el repositorio se está construyendo, es la misma que ```bash $HOME_DIR ``` en este caso, entonces se podría usar también.
+He visto que ```$TRAVIS_BUILD_DIR``` es la ruta absoluta del directorio donde el repositorio se está construyendo, es la misma que ```$HOME_DIR``` en este caso, entonces se podría usar también.
 
 Al final ejecuto el test con el contenedor Docker:
 ```bash
