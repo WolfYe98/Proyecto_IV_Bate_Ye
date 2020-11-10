@@ -40,23 +40,28 @@ Después de activar el repositorio, tienes que configurar un fichero .travis.yml
 #### Mi fichero .travis.yml:
 [Este fichero .travis.yml](https://github.com/WolfYe98/Proyecto_IV_Bate/blob/master/.travis.yml) es el fichero de configuración para la integración continua.
 
-Como vamos a utilizar Docker, indico que quiero usar el servicio Docker así:
+Al principio especifico que utilice la imagen minimal, con esta línea:
 ```bash
-$ services:
-  - docker
+$ language: minimal
 ```
+Esta imagen está optimizado para ser más rápido y para usar menos espacio de disco, ya que solamente contiene Docker, python, algunas herramientas de red, herramientas de control de versiones y herramientas esenciales. No contiene nada más.
 
-Descargo mi imagen docker con:
+Ahora indico que se va a probar en dos distribuciones de linux, en [Focal](https://docs.travis-ci.com/user/reference/focal/) y en [Xenial](https://docs.travis-ci.com/user/reference/xenial/):
 ```bash
-$ before_install:
-    - docker pull wolfye98/proyecto_iv_bate
+$ jobs:
+  include:
+    - os: linux
+      dist: focal
+    - os: linux
+      dist: xenial
 ```
 
 Al final ejecuto el test con el contenedor Docker:
 ```bash
 $ script:
-    - docker run -t -v `pwd`:/test wolfye98/proyecto_iv_bate
+    - docker run -t -v $TRAVIS_BUILD_DIR:/test wolfye98/proyecto_iv_bate
 ```
+$TRAVIS_BUILD_DIR nos especifica la ruta absoluta del directorio de trabajo.
 
 ### Shippable:
 He elegido [Shippable](https://app.shippable.com) como mi segundo servicio de integración continua por varios motivos:
@@ -70,7 +75,7 @@ He elegido [Shippable](https://app.shippable.com) como mi segundo servicio de in
 El archivo de configuración de Shippable que tengo es este: [shippable.yml](https://github.com/WolfYe98/Proyecto_IV_Bate/blob/master/shippable.yml).
 Este archivo es muy parecido al archivo de configuración de Travis.
 
-Para empezar, como en Travis, especifico el lenguaje que voy a utilizar:
+Para empezar, especifico el lenguaje que voy a utilizar:
 ```bash
 $ language: node_js
 ```
@@ -80,16 +85,24 @@ $ node_js:
   - "10"
   - "14"
 ```
-Finalmente, indico que instalen las dependencias y el task runner, y después ejecuta los tests:
+En la construcción, indico que quiero tener un caché de node_modules, así no tienen que descargar las dependencias desde 0 por cada vez que haga un push:
 ```bash
-$ build:
-    ci:
-      - npm install
-      - npm install -g gulp
-      - gulp test
-
+$ cache: true
+$ cache_dir_list:
+  - $SHIPPABLE_BUILD_DIR/node_modules
 ```
 
+Más tarde, instalo el gestor de tareas, y el módulo que deja que el gestor de tareas realice instalaciones:
+```bash
+$ npm install -g gulp
+$ npm install gulp-install
+```
+
+y ahora descargo las demás dependencias con el gestor de tareas y ejecuto los tests:
+```bash
+$ gulp install
+$ gulp test
+```
 
 ## Autor:
 - [Bate Ye](https://github.com/WolfYe98)
