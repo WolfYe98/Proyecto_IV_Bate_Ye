@@ -5,17 +5,8 @@ node_js:
   - "10"
   - "14"
 #Instalo las dependencias, el gestor de tareas y ejecuto los tests.
-services:
-  - docker
 build:
-  pre_ci_boot:
-    image_name: wolfye98/proyecto_iv_bate
-    image_tag: latest
-    pull: true
   ci:
-  #  - npm install
-  #  - npm install -g gulp
-  #  - gulp test
-    - echo $SHIPPABLE_BUILD_DIR
-    - cat $SHIPPABLE_BUILD_DIR/gulpfile.js
-  #  - docker run -t -v $SHIPPABLE_BUILD_DIR wolfye98/proyecto_iv_bate
+    - npm install
+    - npm install -g gulp
+    - gulp test
