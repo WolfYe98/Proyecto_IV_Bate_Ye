@@ -1,4 +1,8 @@
 language: minimal
+os:
+  - linux
+  - osx
+
 #Indicamos que usaremos un servicio docker, para usar el contenedor después.
 services:
   - docker
