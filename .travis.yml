@@ -1,5 +1,6 @@
 language: minimal
 
+#Indico que voy a hacer la integración probándolo en dos distribuciones de linux: focal, y xenial (por defecto suelen usar xenial).
 jobs:
   include:
     - os: linux
