@@ -165,3 +165,19 @@ describe('Testing consultarPrecioGeneral function', function(){
     expect(JSON.stringify(general)).to.equal(JSON.stringify(generalEsperado));
   });
 });
+describe('Testing consultarPrecioCiudad',function(){
+  describe('Testing it with an included city',function(){
+    it('Should return an object which has prices of academies from Madrid',async function(){
+      var precioCiudad = await consultarPrecioCiudad('madrid');
+      var preciosEsperado={Madrid:{Wosap:35,MadridDance:30,CientOchentaGrados:55,ThePlace:50}};
+      expect(JSON.stringify(precioCiudad)).to.equal(JSON.stringify(preciosEsperado));
+    });
+  });
+  describe('Testing it with a NO included city',function(){
+    it('Should return an object with a fail atribbute and a list of included cities',async function(){
+      var noCity = await consultarPrecioCiudad('Roma');
+      var valEsperado = {fail:'Not included city',includedCities:["Madrid","Barcelona","NewYork","Sevilla","LosAngeles"]};
+      expect(JSON.stringify(noCity)).to.equal(JSON.stringify(valEsperado));
+    });
+  });
+});
