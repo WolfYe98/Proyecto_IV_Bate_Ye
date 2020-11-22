@@ -2,7 +2,8 @@ const fetch = require('node-fetch');
 const URL = 'https://academies-pricing.vercel.app/api/academiesPricing';
 
 async function consultarPrecioGeneral(){
-  var retorno = await fetch(URL).then(res => res.json()).then()
+  var retorno = await fetch(URL).then(res => res.json()).then(datos =>{return datos});
+  return retorno;
 }
 async function consultarPrecioCiudad(ciudad){
   var retorno;
