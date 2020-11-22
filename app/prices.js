@@ -9,10 +9,13 @@ async function consultarPrecioCiudad(ciudad){
   var retorno;
   var urlConsulta = URL;
   if(ciudad != undefined){
-    var aux_ciudad = ciudad.replaceAll(' ','%20');
+    var aux_ciudad = ciudad.toString();
+    aux_ciudad = aux_ciudad.replaceAll(' ','%20');
     urlConsulta = URL + '?city='+aux_ciudad;
+    console.log(urlConsulta);
   }
   retorno = await fetch(urlConsulta).then(res=>res.json()).then(datos => {return datos});
+  console.log(retorno);
   if(retorno.includedCities != undefined){
     return {fail:'Not included city',includedCities:retorno.includedCities};
   }
@@ -20,3 +23,6 @@ async function consultarPrecioCiudad(ciudad){
     return retorno;
   }
 }
+
+module.exports.consultarPrecioCiudad = consultarPrecioCiudad;
+module.exports.consultarPrecioGeneral = consultarPrecioGeneral;
