@@ -5,9 +5,10 @@ var BodyPartLevel = require('./bodypartlevel.js')
 var recommendation = require('./recommendation.js');
 var fetch = require('node-fetch');
 var consultarPrecioGeneral = require('./prices.js').consultarPrecioGeneral;
+var consultarPrecioCiudad = require('./prices.js').consultarPrecioCiudad;
 http.createServer(async function(req,res){
   //var url = "https://academies-pricing.vercel.app/api/academiesPricing";
   //var data = await fetch(url).then(resp=>resp.json()).then(data=>{return data});
-  var data = await consultarPrecioGeneral();
+  var data = await consultarPrecioCiudad('los angeles');
   res.end(JSON.stringify(data));
 }).listen(3000);
