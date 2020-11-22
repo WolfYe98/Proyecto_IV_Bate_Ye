@@ -3,7 +3,7 @@ var mocha = require('gulp-mocha');
 var install = require('gulp-install');
 
 
-//Tarea para testear el proyecto.
+//Tarea para testear el proyecto
 gulp.task('test', async function(){
   gulp.src('test')
   .pipe(mocha());
