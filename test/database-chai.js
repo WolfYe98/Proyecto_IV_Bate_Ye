@@ -3,7 +3,8 @@ var Database = require('../app/database.js');
 var path = require('path');
 var BodyPartLevel = require('../app/bodypartlevel.js');
 var recommendation = require('../app/recommendation.js');
-
+var consultarPrecioCiudad = require('../app/prices.js').consultarPrecioCiudad;
+var consultarPrecioGeneral = require('../app/prices.js').consultarPrecioGeneral;
 //Testeando la clase BodyPartLevel
 describe('Testing BodyPartLevel Class',function(){
   var bpart = new BodyPartLevel('pecho', 'hiphop');
@@ -153,5 +154,14 @@ describe('Testing Database Class',function(){
 describe('Testing recommendation(array) function',function(){
   it('Should return KRUMP string',function(){
     expect(recommendation.recommendation([new BodyPartLevel('cadera', 2),new BodyPartLevel('pecho', 0)])).to.equal('KRUMP');
+  });
+});
+
+//Testeando funciones que utilizan el micro-api
+describe('Testing consultarPrecioGeneral function', function(){
+  it('Should return an object with prices minimum, maximum and medium of each city',async function(){
+    var general = await consultarPrecioGeneral();
+    var generalEsperado = {Madrid:{Maximum:55,Minimum:30,Medium:42.5},Barcelona:{Maximum:60,Minimum:40,Medium:48.5},NewYork:{Maximum:160,Minimum:76,Medium:109.25},Sevilla:{Maximum:42,Minimum:35,Medium:38.25},LosAngeles:{Maximum:57,Minimum:17,Medium:38}};
+    expect(JSON.stringify(general)).to.equal(JSON.stringify(generalEsperado));
   });
 });
