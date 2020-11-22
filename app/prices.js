@@ -10,9 +10,7 @@ async function consultarPrecioCiudad(ciudad){
   var urlConsulta = URL;
   if(ciudad != undefined){
     var aux_ciudad = ciudad.toString();
-    aux_ciudad = aux_ciudad.replaceAll(' ','%20');
     urlConsulta = URL + '?city='+aux_ciudad;
-    console.log(urlConsulta);
   }
   retorno = await fetch(urlConsulta).then(res=>res.json()).then(datos => {return datos});
   console.log(retorno);
