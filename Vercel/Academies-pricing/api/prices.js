@@ -1,0 +1,1 @@
+module.exports = {Madrid:{Wosap:35,MadridDance:30,CientOchentaGrados:55,ThePlace:50},Barcelona:{DanceEmotion:50,LaUrbanDance:40,RavalDance:60,AsiSeBaila:44},NewYork:{HHDanceJunkies:76,Broadway:160,Hamilton:84,DanceWithMe:117},Sevilla:{SevillaDanceCenter:35,OnDance:42,Clamor:41,Love2Dance:35},LosAngeles:{KinjazDojo:40,Millennium:57,Steezy:17}};

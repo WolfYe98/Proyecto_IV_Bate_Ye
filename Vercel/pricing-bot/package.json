@@ -1,0 +1,23 @@
+{
+  "name": "pricing-bot",
+  "version": "1.0.0",
+  "description": "A simple Telegram bot made by using Node.js",
+  "main": "api/pricingbot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WolfYe98/pricing-bot.git"
+  },
+  "author": "Bate Ye",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WolfYe98/pricing-bot/issues"
+  },
+  "homepage": "https://github.com/WolfYe98/pricing-bot#readme",
+  "dependencies": {
+    "node-fetch": "^2.6.1",
+    "telegraf": "^3.38.0"
+  }
+}
