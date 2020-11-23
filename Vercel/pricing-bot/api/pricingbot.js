@@ -3,7 +3,7 @@ var fetch = require('node-fetch');
 module.exports = async (req,res)=>{
   if(req.body != undefined){
     if(req.body.message.text != undefined){
-      var URL_BOT = 'https://api.telegram.org/bot'+process.env.BOT_TOKEN;
+      //var URL_BOT = 'https://api.telegram.org/bot'+process.env.BOT_TOKEN; prueba
       var mensaje = "";
       var url_api_prices = 'https://academies-pricing.vercel.app/api/academiesPricing';
       var chatID = req.body.message.chat.id;
@@ -73,14 +73,16 @@ module.exports = async (req,res)=>{
           break;
 
       }
-      var j = {method:"sendMessage",  chat_id: chatID, text: mensaje};
+      var j = {text: mensaje, method: "sendMessage",  chat_id: chatID};
       res.setHeader("Content-Type","application/json");
       res.status(200).json(j);
-      if(mensaje != ""){
-        var sendm = URL_BOT+'/sendMessage?chat_id='+j.chat_id.toString() + '&text='+j.mensaje;
-        var retorno = await fetch(sendm).then(res=>res.json).then(datos=>{return datos}).catch(err=>console.log(err));
-        return retorno;
-      }
+//-------------------------------------------Prueba-------------------------------------------------------------------------
+      //if(mensaje != ""){
+      //  var sendm = URL_BOT+'/sendMessage?chat_id='+j.chat_id.toString() + '&text='+j.mensaje;
+      //  var retorno = await fetch(sendm).then(res=>res.json).then(datos=>{return datos}).catch(err=>console.log(err));
+      //  return retorno;
+      //}
+//-------------------------------------------Prueba-------------------------------------------------------------------------
     }
   }
   else{
