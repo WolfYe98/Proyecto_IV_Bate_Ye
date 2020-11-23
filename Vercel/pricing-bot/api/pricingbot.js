@@ -84,7 +84,7 @@ module.exports = async (req,res)=>{
     }
   }
   else{
-    res.setHeader('Content-Type','text/plain');
-    res.status(100).send('This is a function deployed for TelegramBot named @academiespricingbot');
+    res.setHeader("Content-Type","text/plain");
+    res.status(200).send('This is a function deployed for TelegramBot named @academiespricingbot');
   }
 }
