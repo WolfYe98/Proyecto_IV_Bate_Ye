@@ -14,7 +14,7 @@ const levels = {
 }
 exports.handler = async function(event, context) {
   var partes;
-  if(event.queryStringParameters != {}){
+  if(Object.keys(event.queryStringParameters).length > 0){
     partes = event.queryStringParameters;
   }
   else{
