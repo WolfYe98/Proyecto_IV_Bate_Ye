@@ -8,4 +8,4 @@ test:
 taskfile:
   - gulpfile.js
 URL:
-  - http://academies-pricing.vercel.app/api/academiesPricing
+  - https://academies-pricing.vercel.app/api/academiesPricing
