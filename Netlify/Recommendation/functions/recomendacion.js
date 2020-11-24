@@ -12,6 +12,7 @@ const levels = {
       cadera: 1
   }
 }
+//Funcion desplegado en netlify
 exports.handler = async function(event, context) {
   var partes;
   if(Object.keys(event.queryStringParameters).length > 0){
