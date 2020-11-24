@@ -1,2 +1,3 @@
 [build]
+  #Indico que el directorio de mi proyecto de netlify es en /Netlify/Recommendation, esto es como si hiciera un cd antes de buildear
   base = './Netlify/Recommendation'
