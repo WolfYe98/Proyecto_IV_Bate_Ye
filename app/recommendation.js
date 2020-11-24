@@ -10,7 +10,7 @@ var fetch = require('node-fetch');
 async function recommendation(bodyParts){
   var URL = 'https://dancinform-recomendation.netlify.app/.netlify/functions/recomendacion';
   var i = 0;
-  URL = URL+'?'bodyParts[0].getBodyPart()+'='+bodyParts[0].getUseLevel().toString();
+  URL = URL+'?'+bodyParts[0].getBodyPart()+'='+bodyParts[0].getUseLevel().toString();
   for(i = 1; i < bodyParts.length; i++){
     URL += '&'+bodyParts[i].getBodyPart()+'='+bodyParts[i].getUseLevel().toString();
   }
