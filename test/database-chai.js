@@ -5,6 +5,7 @@ var BodyPartLevel = require('../app/bodypartlevel.js');
 var recommendation = require('../app/recommendation.js');
 var consultarPrecioCiudad = require('../app/prices.js').consultarPrecioCiudad;
 var consultarPrecioGeneral = require('../app/prices.js').consultarPrecioGeneral;
+
 //Testeando la clase BodyPartLevel
 describe('Testing BodyPartLevel Class',function(){
   var bpart = new BodyPartLevel('pecho', 'hiphop');
