@@ -5,7 +5,7 @@ La idea de esta función, es básicamente recibir por petición GET una ciudad y
 
 ## Vercel:
 Para desplegarlo, he importado el repositorio de mi proyecto a Vercel, y en la página, he seleccionado que el directorio raíz que contiene mi código de la función serverless es [aquí](https://github.com/WolfYe98/Proyecto_IV_Bate/tree/master/Vercel/Academies-pricing).
-También lo puedes hacer desde la terminal, simplemente usando el comando vercel, te irá preguntando una serie de configuraciones como que comando quieres usar para ejecutar la función, en qué directorio se encuentra la función etc.
+También lo puedes hacer desde la terminal, simplemente usando el comando ```vercel```, te irá preguntando una serie de configuraciones como que comando quieres usar para ejecutar la función, en qué directorio se encuentra la función etc.
 
 ## La función:
 Vercel ejecuta la función que hayas exportado, la función tendrá 2 parámetros req y res, (request, response).
@@ -15,3 +15,5 @@ En res devuelven la respuesta a la petición.
 
 Send y json son las dos funciones que proporcionan res para devolver la petición, según [este enlace](https://www.tutorialspoint.com/difference-between-res-send-and-res-json-in-express-js) la diferencia entre ellos es que ponen la cabecera con diferentes ```Content-Type```.
 Yo lo he probado con ```curl -I URL``` y sí cambian la cabecera, pero por seguridad, he hecho ```res.setHeader('Content-Type','application/json')```.
+
+La URL de la función desplegado es [este](http://academies-pricing.vercel.app/api/academiesPricing).
