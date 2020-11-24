@@ -48,12 +48,14 @@ exports.handler = async function(event, context) {
     }
     return{
       statusCode: 200,
+      headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({recommendedStyle: retorno})
     };
   }
   else{
     return {
       statusCode: 200,
+      headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({warningMessage:'This api is for recommend a dancing style, you have to give some bodyparts in spanish and their intensity'})
     };
   }
