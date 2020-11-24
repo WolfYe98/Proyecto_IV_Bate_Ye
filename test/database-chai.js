@@ -150,13 +150,6 @@ describe('Testing Database Class',function(){
   });
 });
 
-//Testeando la función recommendation
-describe('Testing recommendation(array) function',function(){
-  it('Should return KRUMP string',function(){
-    expect(recommendation.recommendation([new BodyPartLevel('cadera', 2),new BodyPartLevel('pecho', 0)])).to.equal('KRUMP');
-  });
-});
-
 //Testeando funciones que utilizan el micro-api
 describe('Testing consultarPrecioGeneral function', function(){
   it('Should return an object with prices minimum, maximum and medium of each city',async function(){
@@ -179,5 +172,18 @@ describe('Testing consultarPrecioCiudad',function(){
       var valEsperado = {fail:'Not included city',includedCities:["Madrid","Barcelona","NewYork","Sevilla","LosAngeles"]};
       expect(JSON.stringify(noCity)).to.equal(JSON.stringify(valEsperado));
     });
+  });
+});
+
+
+//Testeando la función recommendation
+describe('Testing recommendation function',async function(){
+  var retorno = await recommendation([new BodyPartLevel('brazos', 3),new BodyPartLevel('piernas', 3)]);
+  it('Should return an array',function(){
+    expect(retorno).to.be.a('array');
+  });
+  it('Should return hiphop and krump',function(){
+    var retEsperado = ['hiphop','krump'];
+    expect(retorno).to.equal(retEsperado);
   });
 });
