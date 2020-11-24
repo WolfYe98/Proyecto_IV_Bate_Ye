@@ -54,7 +54,7 @@ En [este fichero](docs/shippable.md) explico la integración continua con Shippa
 Para desplegar tu función, sólamente tienes que crear un directorio (o incluso un repositorio a parte), en el repositorio tienes que tener una carpeta llamado ```api```, y dentro tiene que estar la función que quieres despegar. (Los ficheros de dependencias como package.json se encuentran en el directorio raíz que le asignes).
 Para crear la función y probarla localmente antes de despegar, tienes que [instalar Vercel](https://vercel.com/download) con:
 ```bash
-  npm i -g vercel
+  $ npm i -g vercel
 ```
 Una vez descargado, con ```vercel dev``` o con ```vc dev``` puedes probar tu función serverless localmente.
 
@@ -76,6 +76,21 @@ El objeto ```j``` lo devolvemos con ```res.status(200).json(j)```, ```status()``
 El bot lo puedes encontrar en Telegram buscando ```@academiespricingbot```.
 Con ```/start/``` te devuelve el mensaje de bienvenida.
 Para consultar los comandos, escribe ```/help```.
+
+
+### Netlify:
+Aquí los pasos iniciales de registro y de vincular repositorios de Github son casi iguales que Vercel, lo puedes ver [aquí](https://www.netlify.com/blog/2016/09/29/a-step-by-step-guide-deploying-on-netlify/).
+La diferencia que tiene con Vercel, es que Vercel te permite indicarle cuál es el directorio de raíz usando la web, y en Netlify tienes que tener el fichero de configuraciones ```netlify.toml```.
+Como mi funciones de Netlify están en el directorio ```Netlify/Recommendation```, en mi directorio principal está [este fichero](https://github.com/WolfYe98/Proyecto_IV_Bate/blob/master/netlify.toml), este fichero indica a Netlify que antes de construir y desplegar, que haga como si fuera un ```cd``` al directorio indicado:
+```bash
+  $[build]
+  $  base = './Netlify/Recommendation'
+```
+En el directorio ```./Netlify/Recommendation``` hay otro fichero ```netlify.toml```, este segundo fichero indica donde se encuentra la función que quiero desplegar.
+Este es el [segundo fichero netlify.toml](https://github.com/WolfYe98/Proyecto_IV_Bate/blob/master/Netlify/Recommendation/netlify.toml).
+
+El fichero de la función que he desplegado en Netlify es [este](https://github.com/WolfYe98/Proyecto_IV_Bate/blob/master/Netlify/Recommendation/functions/recomendacion.js).
+[Aquí esta la explicación del código](docs/netlify.md).
 
 ## Autor:
 - [Bate Ye](https://github.com/WolfYe98)
