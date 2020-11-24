@@ -13,7 +13,6 @@ async function consultarPrecioCiudad(ciudad){
     urlConsulta = URL + '?city='+aux_ciudad;
   }
   retorno = await fetch(urlConsulta).then(res=>res.json()).then(datos => {return datos});
-  console.log(retorno);
   if(retorno.includedCities != undefined){
     return {fail:'Not included city',includedCities:retorno.includedCities};
   }
