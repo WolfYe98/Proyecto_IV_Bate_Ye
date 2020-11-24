@@ -23,3 +23,5 @@ Y un body que tiene un string de un json que voy a devolver.
 
 
 La URL de esta función desplegado en Netlify es [esta](https://dancinform-recomendation.netlify.app/.netlify/functions/recomendacion).
+
+En [este fichero](https://github.com/WolfYe98/Proyecto_IV_Bate/blob/master/app/recommendation.js) se puede ver como utilizo esta función serverless.

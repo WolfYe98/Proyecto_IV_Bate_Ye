@@ -17,3 +17,5 @@ Send y json son las dos funciones que proporcionan res para devolver la petició
 Yo lo he probado con ```curl -I URL``` y sí cambian la cabecera, pero por seguridad, he hecho ```res.setHeader('Content-Type','application/json')```.
 
 La URL de la función desplegado es [este](http://academies-pricing.vercel.app/api/academiesPricing).
+
+En [este fichero](https://github.com/WolfYe98/Proyecto_IV_Bate/blob/master/app/prices.js) se puede ver como utilizo esta función serverless.
