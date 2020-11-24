@@ -5,6 +5,7 @@ var fetch = require('node-fetch');
 * @summary Función que devuelve cual sería el estilo más recomendable según las partes del cuerpo que les han pasado
 * @author Bate Ye
 * @param {Array} bodyParts Es un array de objetos de BodyPartLevel, indican qué partes del cuerpo y que nivel de uso suele tener el usuario de esas partes.
+* @return {Array} array Es un array de los estilos que el api te recomienda empezar.
 */
 async function recommendation(bodyParts){
   var URL = 'https://dancinform-recomendation.netlify.app/.netlify/functions/recomendacion';
