@@ -92,7 +92,7 @@ Aquí los pasos iniciales de registro y de vincular repositorios de Github son c
 
 La diferencia que tiene con Vercel, es que Vercel te permite indicarle cuál es el directorio de raíz usando la web, y en Netlify tienes que tener el fichero de configuraciones ```netlify.toml```.
 
-Como mi función de Netlify están en el directorio ```Netlify/Recommendation```, en mi directorio principal está [este fichero](https://github.com/WolfYe98/Proyecto_IV_Bate/blob/master/netlify.toml), este fichero indica a Netlify que antes de construir y desplegar, que haga como si fuera un ```cd``` al directorio indicado:
+Como mi función de Netlify están en el directorio ```Netlify/Recommendation```, en mi directorio principal está [este fichero](https://github.com/WolfYe98/Proyecto_IV_Bate/blob/master/netlify.toml), este fichero indica a Netlify que antes de construir y que cambie al directorio indicado ([este enlace](https://docs.netlify.com/configure-builds/get-started/#definitions) lo indica):
 ```bash
   $[build]
   $  base = './Netlify/Recommendation'
