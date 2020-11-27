@@ -30,6 +30,7 @@ En Netlify, las funciones que queremos que se despliegue hay que exportarlos com
   $ exports.handler = async function(event, context) {}
 ```
 El parámetro ```event``` que recibe la función, es un objeto que contendrá los parámetros de la petición.
+
 En cuanto empiece la función, compruebo que hay algún parámetros en ```event.queryStringParameters``` que es donde guardan los parámetros de la petición:
 ```bash
   $ if(Object.keys(event.queryStringParameters).length > 0){}
@@ -39,6 +40,7 @@ En cuanto empiece la función, compruebo que hay algún parámetros en ```event.
       $ partes = event.queryStringParameters
     ```
     Luego, extraigo las partes de los cuerpos y su valor (es como la intensidad que se usa cada parte del cuerpo), y para cada valor de las partes introducidas que sean mayor que los valores de los estilos de los datos que tenemos, sumo un punto a dicho estilo (habiendo metido todos los estilos en un objeto de forma {nombreEstilo:valor}).
+
     Al final, saco los estilos que tienen mayores puntuaciones, los guardo en un objeto, y los devuelvo de esta forma:
     ```bash
       $ return{

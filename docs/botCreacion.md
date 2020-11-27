@@ -5,6 +5,7 @@ Para crear un bot de Telegram, lo primero que tengo que hacer es iniciar una con
 ```bash
   $ /start
 ```
+
 El ```@BotFather``` me contesta con un mensaje que indica los pasos que tengo que seguir:
   - Envío ```/newbot``` para crear un bot nuevo.
   - Después me solicita un nombre para el bot, he escogido: ```pricingbot```
@@ -13,13 +14,18 @@ El ```@BotFather``` me contesta con un mensaje que indica los pasos que tengo qu
 
 ## Configurar el webhook:
 Normalmente, si no uso un webhook, los bots que creo hacen peticiones al servidor de Telegram repetidamente para ver si hay algún mensaje nuevo.
+
 Un webhook lo que hace es que el servidor cuando reciba un mensaje para el bot, le manda los mensajes, y ya lo enlazado al webhook se encarga de ver el mensaje y de realizar acciones con el mensaje.
+
 Esto quiere decir que antes de configurar el webhook tendría que tener una función desplegado y que el webhook pueda engancharse, la función la he creado ya, lo explicaré en [este fichero](botFuncion.md), aquí voy a indicar como configurar el webhook.
+
 Cuando he terminado lo pasos anteriores, el ```@BotFather``` en el mensaje de éxito de creación del bot, me devolvió un token, que es el identificador del bot.
+
 Para configurar el webhook, simplemente en un navegador, he escrito:
 ```bash
   $ https://api.telegram.org/bot<BOT_TOKEN>/setWebHook?url=<URL_de_la_funcion>
 ```
+
 Donde <BOT_TOKEN> lo sustituí por el token que me ha pasado ```@BotFather```y <URL_de_la_funcion> por ```https://pricing-bot.vercel.app/api/precingbot```.
 
 Así ya he configurado el webhook para mi bot.
