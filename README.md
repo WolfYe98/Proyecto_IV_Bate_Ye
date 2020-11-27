@@ -64,21 +64,9 @@ He creado un bot de Telegram que usa la función serverless que he desplegado en
 
 
 ### Netlify:
-Aquí los pasos iniciales de registro y de vincular repositorios de Github son casi iguales que Vercel, lo puedes ver [aquí](https://www.netlify.com/blog/2016/09/29/a-step-by-step-guide-deploying-on-netlify/).
-
-La diferencia que tiene con Vercel, es que Vercel te permite indicarle cuál es el directorio de raíz usando la web, y en Netlify tienes que tener el fichero de configuraciones ```netlify.toml```.
-
-Como mi función de Netlify están en el directorio ```Netlify/Recommendation```, en mi directorio principal está [este fichero](https://github.com/WolfYe98/Proyecto_IV_Bate/blob/master/netlify.toml), este fichero indica a Netlify que antes de construir y que cambie al directorio indicado ([este enlace](https://docs.netlify.com/configure-builds/get-started/#definitions) lo indica):
-```bash
-  $[build]
-  $  base = './Netlify/Recommendation'
-```
-
-En el directorio ```./Netlify/Recommendation``` hay otro fichero ```netlify.toml```, este segundo fichero indica donde se encuentra la función que quiero desplegar.
-Este es el [segundo fichero netlify.toml](https://github.com/WolfYe98/Proyecto_IV_Bate/blob/master/Netlify/Recommendation/netlify.toml).
-
-El fichero de la función que he desplegado en Netlify es [este](https://github.com/WolfYe98/Proyecto_IV_Bate/blob/master/Netlify/Recommendation/functions/recomendacion.js).
-[Aquí esta la explicación del código](docs/netlify.md).
+Documentaciones:
+  - [Despliegue y explicación de la función](docs/netlify.md)
+  - [Integración de la función en el proyecto](docs/integraciónNetlify.md)
 
 ## Autor:
 - [Bate Ye](https://github.com/WolfYe98)
