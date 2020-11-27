@@ -28,17 +28,28 @@ En cuanto empiece la función, compruebo que hay algún parámetros en ```event.
 ```bash
   $ if(Object.keys(event.queryStringParameters).length > 0){}
 ```
-Si hay parámetros, los guardo como partes de un cuerpo:
-```bash
-  $ partes = event.queryStringParameters
-```
+  - Si hay parámetros, los guardo como partes de un cuerpo:
+    ```bash
+      $ partes = event.queryStringParameters
+    ```
+    Luego, extraigo las partes de los cuerpos y su valor (es como la intensidad que se usa cada parte del cuerpo), y para cada valor de las partes introducidas que sean mayor que los valores de los estilos de los datos que tenemos, sumo un punto a dicho estilo (habiendo metido todos los estilos en un objeto de forma {nombreEstilo:valor}).
+    Al final, saco los estilos que tienen mayores puntuaciones, los guardo en un objeto, y los devuelvo de esta forma:
+    ```bash
+      $ return{
+        statusCode: 200,
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({recommendedStyle: retorno})
+      };
+    ```
+    El ```statusCode: 200``` indica que el código de estado que voy a devolver es el 200, ```headers: {'Content-Type': 'application/json'}``` configura que el tipo del contenido es JSON, y body es el mensaje de respuesta que devuelvo, en este caso, son los estilos más recomendados.
+  - Si no hay parámetros, devuelvo un mensaje de que esta función necesita recibir parámetros:
+    ```bash
+      $ return {
+        statusCode: 200,
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({warningMessage:'This api is for recommend a dancing style, you have to give some bodyparts in spanish and their intensity'})
+      };
+    ```
+La URL de esta función desplegado en Netlify es: https://dancinform-recomendation.netlify.app/.netlify/functions/recomendacion
 
-[He seguido estos pasos para implementar la función](https://docs.netlify.com/functions/build-with-javascript/#synchronous-function-format).
-Uso una función asíncrona (async), que tiene dos parámetros ```event``` y ```context```.
-En ```event``` se encuentran los objetos que contienen nuestra petición, más concretamente en ```event.queryStringParameters```, que es un objeto tipo JSON y contiene los parámetros como por ejemplo las partes del cuerpo junto con su intensidad.
-
-
-
-La URL de esta función desplegado en Netlify es [esta](https://dancinform-recomendation.netlify.app/.netlify/functions/recomendacion).
-
-En [este fichero](https://github.com/WolfYe98/Proyecto_IV_Bate/blob/master/app/recommendation.js) se puede ver como utilizo esta función serverless.
+El fichero de la función es [este](https://github.com/WolfYe98/Proyecto_IV_Bate/blob/master/Netlify/Recommendation/functions/recomendacion.js).
