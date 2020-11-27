@@ -4,11 +4,17 @@
 Para el despliegue de una función Serverless en Netlify, he seguido estos pasos:
   - Primero me he registrado en la página con mi cuenta de Github.
   - Una vez registrado he importado el repositorio donde se encuentra la función que quiero desplegar, seleccionando en ```New site from Git```.
-  [Imagen](imagenes/importarBotonNetlify.png).
+
+  ![Imagen](imagenes/importarBotonNetlify.png).
+
   - Después de darle a ```New site from Git```, he seleccionado que el repositorio lo importaré desde Github.
-  [Imagen](imagenes/seleccionarGithubNetlify.png).
+
+  ![Imagen](imagenes/seleccionarGithubNetlify.png).
+
   - Selecciono el repositorio que quiero importar, luego selecciono quien es el propietario y a que rama tendré que hacer un push para el auto-despliegue:
-  [Imagen](imagenes/ultimoPasoImportarNetlify.png).
+
+  ![Imagen](imagenes/ultimoPasoImportarNetlify.png).
+
   - Una vez importado, tengo en mi repositorio un fichero netlify.toml que indica cuál será el directorio base de la función que quiero desplegar (como tengo netlify.toml, no es necesario que lo configure desde la página).
   [Este fichero](https://github.com/WolfYe98/Proyecto_IV_Bate/blob/master/netlify.toml) es el fichero que indica cuál es el directorio base de mi función.
   Base indica a Netlify que antes de empezar a construir, tiene que cambiarse al directorio indicado allí.

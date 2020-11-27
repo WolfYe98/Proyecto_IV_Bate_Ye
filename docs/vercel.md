@@ -3,26 +3,43 @@
 ### Despliegue:
 Para desplegar la función en Vercel y que haga los despliegues automáticamente cuando realices un push en mi repositorio de Github, he seguido estos pasos:
   - Me he registrado en Vercel con mi cuenta de Github.
-  [Imagen](imagenes/registroVercel.png)
+
+  ![Imagen](imagenes/registroVercel.png)
+
   - Después de registrarme, he importado el proyecto donde tengo el código de la función que quiero desplegar a Vercel, dandole al botón de Import Project.
-  [Imagen](imagenes/importarVercel.png)
+
+  ![Imagen](imagenes/importarVercel.png)
+
   - En la sección de Importar Proyecto, he introducido la URL de mi repositorio del proyecto.
-  [Imagen](imagenes/urlGitHubVercel.png)
+
+  ![Imagen](imagenes/urlGitHubVercel.png)
+
   - Me piden ahora que le indique donde está la carpeta que se encuentra nuestra función a desplegar (directorio root), lo seleccionamos y continuamos.
-  [Imagen](imagenes/rootAcademiesVercel.png)
+
+  ![Imagen](imagenes/rootAcademiesVercel.png)
+
   - He dejado el FRAMEWORK PRESET y Build and Output Settings por defecto ya que no utilizo ningún Framework y mi proyecto usa el build command por defecto. Tampoco me ha sido necesario definir Variables de Entorno por ahora.
-  [Imagen](imagenes/presetBuildVercel.png)
+
+  ![Imagen](imagenes/presetBuildVercel.png)
+
   - Ya tendríamos nuestra función desplegado en Vercel.
-  [Imagen](imagenes/deployedVercel.png)
+
+  ![Imagen](imagenes/deployedVercel.png)
+
   - Para que Vercel auto-despliegue nuestra función cada vez que realicemos un push a mi rama principal de mi repositorio de Github, he seleccionado la función desplegado en Vercel y he ido a Settings -> Git, he chequeado que el repositorio de Github conectado es el repositorio de mi proyecto (Proyecto_IV_Bate), y debajo, en Production Branch, puedo seleccionar la rama en la que quiero que cuando haga push, se autodespliegue mi función en Vercel, por defecto estaba en ```main```, pero mi rama principal se llama master, así que en Select Branch he escogido la opción de Custom (para indicar la rama que quiero), y de Branch Name he puesto ```master```.
   Ahora cada vez que realizo un push a la rama ```master``` de mi repositorio Proyecto_IV_Bate, se auto-desplegará la función serverless.
-  [Imagen](imagenes/settingGitVercel.png)
-  [Imagen](imagenes/connectGitRepository.png)
-  [Imagen](imagenes/productionBranch.png)
+
+  ![Imagen](imagenes/settingGitVercel.png)
+
+  ![Imagen](imagenes/connectGitRepository.png)
+
+  ![Imagen](imagenes/productionBranch.png)
 
   - Puedo hacer despliegues desde mi local también, de manera que tengo que ir primero al directorio donde se encuentra mi función, descargar el CLI Vercel y luego ejecutar Vercel (estando en el directorio root del local).
   Al ejecutar por primera vez ```vercel``` en mi directorio local de la función, me ha preguntado una serie de preguntas, pero como ya lo tenía configurado todo desde la página de Vercel, simplemente he ido dandole a Enter para seleccionar la selección por defecto, y me lo configura automáticamente todo (como enlazar el local con el proyecto de Vercel, elegir el usuario que quiero enlazarlo, el directorio root).
-  [Imagen](imagenes/localVercel.png)
+
+  ![Imagen](imagenes/localVercel.png)
+
   - Para desplegar la función desde el local sin push al repositorio de Git, puedes usar como bien dice arriba en la imagen, este comando: ```vercel --prod```.
 
 
