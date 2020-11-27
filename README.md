@@ -59,7 +59,7 @@ En [este fichero](docs/shippable.md) explico la integración continua con Shippa
 ### Bot de Telegram desplegado en Vercel:
 He creado un bot de Telegram que usa la función serverless que he desplegado en Vercel.
 
-  - [Documentación de la creación del bot y la configuración del webhoook](docs/botCreacion.md)
+  - [Documentación de la creación del bot y la configuración del webhook](docs/botCreacion.md)
   - [Documentación de la función del bot desplegado en Vercel](docs/botFuncion.md)
 
 
