@@ -53,7 +53,7 @@ En [este fichero](docs/shippable.md) explico la integración continua con Shippa
 [Vercel](https://vercel.com/) es una plataforma donde puedes subir funciones serverless, de forma muy sencilla, además cuenta con integración con Github. Te puedes registrar con tu cuenta de Github.
 
   - [Documentación del despliegue y de la función](docs/vercel.md).
-  - [Documentación de la integración en el proyecto](docs/integracionVeracel.md).
+  - [Documentación de la integración en el proyecto](docs/integracionVercel.md).
 
 
 ### Bot de Telegram desplegado en Vercel:
@@ -66,7 +66,7 @@ He creado un bot de Telegram que usa la función serverless que he desplegado en
 ### Netlify:
 Documentaciones:
   - [Despliegue y explicación de la función](docs/netlify.md)
-  - [Integración de la función en el proyecto](docs/integraciónNetlify.md)
+  - [Integración de la función en el proyecto](docs/integracionNetlify.md)
 
 ## Autor:
 - [Bate Ye](https://github.com/WolfYe98)
