@@ -65,7 +65,7 @@ He creado un bot de Telegram que usa la función serverless que he desplegado en
 
 ### Netlify:
 Documentaciones:
-  - [Despliegue y explicación de la función](docs/netlify.md)
+  - [Despliegue y explicación de la función](docs/netlify.md)
   - [Integración de la función en el proyecto](docs/integraciónNetlify.md)
 
 ## Autor:
