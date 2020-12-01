@@ -49,7 +49,23 @@ app.get('/city/:cityName',(req,res)=>{
 });
 
 //Ruta que recibe el nombre de un fundador y devuelve el estilo que ha creado.
-app.get('/founder/')
+app.get('/founder/:founderName',(req,res)=>{
+  try{
+    var st = styles.getStylesByFounder(req.params.founder);
+    res.code(200);
+    res.send({styles:st});
+  }catch(err){
+    console.log(err);
+    res.code(404);
+    res.send({
+      statusCode: res.statusCode,
+      message:'Founder Not Found'
+    });
+  }
+});
+
+//Ruta para eliminar un estilo.
+
 
 app.listen(3000,(err)=>{
   if(err){
