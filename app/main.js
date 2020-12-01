@@ -27,12 +27,29 @@ app.get('/style/:styleName',(req,res)=>{
     res.code(404);
     res.send({
       statusCode: res.statusCode,
-      message:'Not found'
+      message:'Style Not Found'
     });
   }
 });
 
 //Ruta para obtener estilos en cada ciudad.
+app.get('/city/:cityName',(req,res)=>{
+  try{
+    var st = styles.getStylesByCity(req.params.cityName);
+    res.code(200);
+    res.send({styles:st});
+  }catch(err){
+    console.log(err);
+    res.code(404);
+    res.send({
+      statusCode: res.statusCode,
+      message:'City Not Found'
+    });
+  }
+});
+
+//Ruta que recibe el nombre de un fundador y devuelve el estilo que ha creado.
+app.get('/founder/')
 
 app.listen(3000,(err)=>{
   if(err){
