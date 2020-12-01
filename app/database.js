@@ -87,11 +87,16 @@ class Database{
     if(this.data != undefined){
       var data_keys = this.getStyles();
       for(var i = 0; i < data_keys.length; i++){
+        var fou = this.data[data_keys[i]]['founder'];
+        fou= fou.replace(' ','');
         if(this.data[data_keys[i]]["founder"].toLowerCase().includes(founder.toLowerCase())){
           return this.data[data_keys[i]];
         }
+        if(fou.toLowerCase() == founder.toLowerCase()){
+          styles.push(data_keys[i]);
+        }
       }
-      return "No existe este fundador";
+      throw new Error('Could not find this founder');
     }
     else{
       return "Aun no tenemos ningún estilo, puedes añadir tu uno!";
@@ -108,10 +113,17 @@ class Database{
     if(this.data != undefined){
       var data_keys = this.getStyles();
       var styles = [];
+
       for(var i = 0; i < data_keys.length; i++){
+        var ci = this.data[data_keys[i]]['city'];
+        ci = ci.replace(' ','');
         if(this.data[data_keys[i]]["city"].toLowerCase().includes(city.toLowerCase())){
           styles.push(data_keys[i]);
         }
+        if(ci.toLowerCase() == city.toLowerCase()){
+          styles.push(data_keys[i]);
+        }
+
       }
       if(styles.length > 0){
         return styles;
