@@ -138,17 +138,6 @@ describe('Testing Database Class',function(){
       expect(JSON.stringify(db.data).toLowerCase()).to.equal(JSON.stringify(esperado).toLowerCase());
     });
   });
-
-  describe('Testing getBodyPartArray function',function(){
-    it('Should return an array',function(){
-      expect(db.getBodyPartArray("hiphop")).to.be.a("array");
-    });
-    it('Should have only BodyPartLevel objects',function(){
-      db.getBodyPartArray("hiphop").forEach(function(e,i,array){
-        expect(e).to.be.an.instanceof(BodyPartLevel);
-      });
-    });
-  });
 });
 
 //Testeando funciones que utilizan el micro-api
