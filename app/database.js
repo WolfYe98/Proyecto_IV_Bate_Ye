@@ -69,7 +69,7 @@ class Database{
         return style;
       }
       else{
-        return "No existe este estilo, puedes añadirlo!";
+        throw new Error('This style is not included');
       }
     }
     else{
@@ -117,11 +117,11 @@ class Database{
         return styles;
       }
       else{
-        return "No existe esta ciudad";
+        throw new Error('This city is not in our DB');
       }
     }
     else{
-      return "Aun no tenemos ningún estilo, puedes añadir tu uno!";
+      throw new Error('There is no data yet');
     }
   }
   /**
@@ -139,7 +139,7 @@ class Database{
   */
   addStyle(styleName, year, founder, city, history, description, body){
     if(!styleName || !year || !founder || !city || !history || !description || !(body.length >0)){
-      return "Hay datos no rellenados";
+      throw new Error('Some params are not writed');
     }
     else{
       var new_object={};
@@ -151,18 +151,13 @@ class Database{
         "description":description,
         "body":body
       };
-      if(this.getStyles().toString().toLowerCase().includes(styleName.toLowerCase())){
-        return "este estilo ya existe";
+
+      if(!this.getStyles().toString().toLowerCase().includes(styleName.toLowerCase())){
+        this.data = Object.assign(new_object,this.data);
+        return new_object;
       }
       else{
-        var añadido = false;
-        if(!this.getStyles().toString().toLowerCase().includes(styleName.toLowerCase())){
-            this.data = Object.assign(new_object,this.data);
-            return "Añadido!";
-        }
-        else{
-          return "Este estilo ya existe";
-        }
+        throw new Error('This style has been already added');
       }
     }
   }
@@ -177,10 +172,9 @@ class Database{
     if(this.data != undefined){
       if(this.getStyles().toString().toLowerCase().includes(styleName.toLowerCase())){
         delete this.data[styleName.toLowerCase()];
-        return "Eliminado!";
       }
       else{
-        return "El nombre no coincide con los estilos que tenemos";
+        throw new Error('Style does never been in the DB');
       }
     }
   }
@@ -193,26 +187,7 @@ class Database{
       });
     }
   }
-  /**
-  * @function getBodyPartArray
-  * @summary Método que devuelve un array de objetos tipo BodyPartLevel
-  * @author Bate Ye
-  * @param {string} style Es el nombre del estilo de baile que queremos saber sus usos del cuerpo.
-  * @returns {undefined} Devuelve undefined si no existe body del estilo.
-  */
-  getBodyPartArray(style){
-    if(typeof this.data[style]["body"] === "object"){
-      var array = new Array();
-      this.data[style]["body"].forEach(function (element, index, vector){
-        var bpart = new BodyPartLevel(element, style);
-        array.push(bpart);
-      });
-      return array;
-    }
-    else{
-      return undefined;
-    }
-  }
+
 }
 
 module.exports = Database;
