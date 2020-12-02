@@ -88,12 +88,9 @@ class Database{
       var data_keys = this.getStyles();
       for(var i = 0; i < data_keys.length; i++){
         var fou = this.data[data_keys[i]]['founder'];
-        fou= fou.replace(' ','');
-        if(this.data[data_keys[i]]["founder"].toLowerCase().includes(founder.toLowerCase())){
-          return this.data[data_keys[i]];
-        }
+        fou= fou.split(' ').join('');
         if(fou.toLowerCase() == founder.toLowerCase()){
-          styles.push(data_keys[i]);
+          return this.data[data_keys[i]];
         }
       }
       throw new Error('Could not find this founder');
@@ -113,17 +110,13 @@ class Database{
     if(this.data != undefined){
       var data_keys = this.getStyles();
       var styles = [];
-
+      var ci;
       for(var i = 0; i < data_keys.length; i++){
-        var ci = this.data[data_keys[i]]['city'];
-        ci = ci.replace(' ','');
-        if(this.data[data_keys[i]]["city"].toLowerCase().includes(city.toLowerCase())){
+        ci = this.data[data_keys[i]]['city'];
+        ci= ci.split(' ').join(''); //This line is for delete all spaces
+        if(ci.toLowerCase() == city.toLocaleLowerCase()){
           styles.push(data_keys[i]);
         }
-        if(ci.toLowerCase() == city.toLowerCase()){
-          styles.push(data_keys[i]);
-        }
-
       }
       if(styles.length > 0){
         return styles;
