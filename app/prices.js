@@ -14,9 +14,14 @@ async function consultarPrecioCiudad(ciudad){
   }
   retorno = await fetch(urlConsulta).then(res=>res.json()).then(datos => {return datos});
   if(retorno.includedCities != undefined){
-    return {fail:'Not included city',includedCities:retorno.includedCities};
+    return {
+      status: 404,
+      fail:'Not included city',
+      includedCities:retorno.includedCities
+    };
   }
   else{
+    retorno.status=200;
     return retorno;
   }
 }
