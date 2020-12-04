@@ -18,23 +18,50 @@ app.get('/allstyles',(req,res)=>{
   });
 });
 
-app.register(styleMiddleware);
+//Registrar el hook que he creado.
+app.register(styleHook);
+
 //ruta para obtener un estilo en concreto y todas sus informaciones.
-function styleMiddleware(app,options,done){
+function styleHook(app,options,done){
+  //Si falta algún parámetro, loggeo el error.
   app.addHook('preHandler',async (req,res)=>{
     if(req.params.styleName != undefined){
       if(req.params.styleName == ''){
-        req.log.error('No styleName passed to /style!');
+        req.log.error('No style name passed to /style!');
+        res.code(404);
+        res.send({
+          statusCode: res.statusCode,
+          message:'No style name passed to the route /style'
+        });
       }
     }
     if(req.params.cityName != undefined){
       if(req.params.cityName == ''){
-        req.log.error('No cityName passed to /city!');
+        req.log.error('No cityName passed to /city!');res.code(404);
+        res.send({
+          statusCode: res.statusCode,
+          message:'No city name passed to the route /city'
+        });
       }
     }
     if(req.params.founderName != undefined){
       if(req.params.founderName == ''){
-        req.log.error('No founderName passed to /founder!');
+        req.log.error('No founder name passed to /founder!');
+        res.code(404);
+        res.send({
+          statusCode: res.statusCode,
+          message:'No founder name passed to the route /founder'
+        });
+      }
+    }
+    if(req.params.city != undefined){
+      if(req.params.city == ''){
+        req.log.error('No city passed to /prices!');
+        res.code(404);
+        res.send({
+          statusCode: res.statusCode,
+          message:'No city passed to the route /prices'
+        });
       }
     }
   });
@@ -87,10 +114,43 @@ function styleMiddleware(app,options,done){
     }
   });
 
+  app.get('/prices/:city',async (req,res)=>{
+    var obj = await consultarPrecioCiudad(req.params.city);
+    if(obj.status == 200){
+      res.code(200);
+      res.send({
+        statusCode: res.statusCode,
+        price:obj
+      });
+    }
+    else{
+      res.code(404);
+      res.send({
+        statusCode: res.statusCode,
+        message:'City not included at prices lists'
+      });
+    }
+  });
   done();
 }
 
-//Ruta para eliminar un estilo.
+//Ruta para consultar precios de un estilo.
+app.get('/prices',async (req,res)=>{
+  var obj = await consultarPrecioGeneral();
+  if(obj.includedCities != undefined){
+    res.code(404);
+    res.send({
+      statusCode:res.statusCode,
+      message:'Not prices found'
+    });
+  }
+  else{
+    res.code(200);
+    res.send({
+      prices:obj
+    });
+  }
+});
 
 
 app.listen(3000,(err)=>{
