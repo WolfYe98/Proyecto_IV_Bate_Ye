@@ -4,7 +4,7 @@ class BodyPartLevel{
   * @function Constructor
   * @summary Constructor que recibe el bodyPart y el estilo del baile o un numero que será el uso de esa parte del cuerpo. (Si recibe el estilo devuelve la intensidad del estilo y sino es un objeto sin estilo).
   * @author Bate Ye
-  * @param {string} style Es el nombre del estilo de baile que queremos saber sus usos del cuerpo.
+  * @param {string | number} style Es el nombre del estilo de baile que queremos saber sus usos del cuerpo o sino, es el nivel de intensidad.
   */
   constructor(bodyPart, style){
     this.levels = {

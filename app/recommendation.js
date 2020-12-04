@@ -15,11 +15,13 @@ async function recommendation(bodyParts){
     URL += '&'+bodyParts[i].getBodyPart()+'='+bodyParts[i].getUseLevel().toString();
   }
   var obj = await fetch(URL).then(res=>res.json()).then(datos=>{return datos}).catch(err=>console.log(err));
-  var keysObject = Object.keys(obj);
+  var retObj = obj.recommendedStyle;
+  var keysObject = Object.keys(retObj);
   var array = [];
   for(i = 0; i < keysObject.length;i++){
-    array.push(keysObject[i]);
+    array.push(retObj[keysObject[i]]);
   }
+
   return array;
 }
 
