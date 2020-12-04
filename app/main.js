@@ -1,9 +1,11 @@
 const fastify = require('fastify');
 const Database = require("./database.js");
+const BodyPartLevel = require('./bodypartlevel.js');
 var db = new Database(undefined);
 var Styles = require('./styles.js');
 var styles = new Styles(db);
-var recommendation = require('./recommendation.js');
+
+var recommendation = require('./recommendation.js').recommendation;
 var consultarPrecioGeneral = require('./prices.js').consultarPrecioGeneral;
 var consultarPrecioCiudad = require('./prices.js').consultarPrecioCiudad;
 
@@ -152,6 +154,39 @@ app.get('/prices',async (req,res)=>{
   }
 });
 
+//Hook y ruta que recomiendan estilos de baile.
+app.register(recommendationHook);
+
+async function recommendationHook(app,options,done){
+  app.addHook('preValidation',(req,res,done)=>{
+    var keys = Object.keys(req.query);
+    if(keys.length == 0){
+      req.log.error('Not body parts passed to the request');
+      res.code(400);
+      res.send({
+        statusCode:res.statusCode,
+        message:'Not body parts passed to the request'
+      });
+    }
+    done();
+  });
+  app.get('/recommendation',async (req,res)=>{
+    var parts = req.query;
+    var bodyNames = Object.keys(parts);
+    var bparray =[];
+    for(var i = 0; i < bodyNames.length; i++){
+      var bp = new BodyPartLevel(bodyNames[i],parseInt(parts[bodyNames[i]]));
+      bparray.push(bp);
+    }
+    var ret = await recommendation(bparray);
+    res.code(200);
+    res.send({
+      recommendedStyles:ret
+    });
+  });
+
+  done();
+}
 
 app.listen(3000,(err)=>{
   if(err){
