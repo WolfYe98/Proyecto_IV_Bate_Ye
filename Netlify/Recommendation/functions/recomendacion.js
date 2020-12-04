@@ -55,7 +55,7 @@ exports.handler = async function(event, context) {
   }
   else{
     return {
-      statusCode: 200,
+      statusCode: 404,
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({warningMessage:'This api is for recommend a dancing style, you have to give some bodyparts in spanish and their intensity'})
     };
