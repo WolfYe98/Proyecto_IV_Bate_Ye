@@ -60,5 +60,10 @@ module.exports = (req, res) => {
   }
   res.setHeader('Content-Type','application/json'); //Esta línea no tienes porque ponerlo ya que res.json ya
   // settea el header automáticamente a: 'Content-Type','application/json'
-  res.status(200).json(obj);
+  if(obj.includedCities != undefined){
+    res.status(404).json(obj);
+  }
+  else{
+    res.status(200).json(obj);
+  }
 };
