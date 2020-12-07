@@ -74,16 +74,7 @@ describe('Testing routes',()=>{
     });
   });
 
-  describe('Testing /recommendation route',()=>{
-    it('Should recommend a style',async ()=>{
-      const res = await app.inject({
-        method:'GET',
-        url: '/recommendation',
-        query: {brazos:3,cadera:3}
-      });
-      expect(res).to.have.status(200);
-    });
-  });
+  
 
   describe('Testing /addStyle route',()=>{
     it('Should add the new style and return a 201 status code',async ()=>{
