@@ -107,5 +107,24 @@ describe('Testing routes',()=>{
     });
   });
 
+  describe('Testing /updateStyle route',()=>{
+    it('Should update a style and return 200', async()=>{
+      const res = await app.inject({
+        method:'POST',
+        url:'/updateStyle',
+        body:{
+          key:19980930,
+          updateStyle:{
+            styleName:'hiphop',
+            styleInformation:{
+              year:1976
+            }
+          }
+        }
+      });
+      expect(res).to.have.status(200);
+    });
+  });
+
 
 });
