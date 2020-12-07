@@ -126,5 +126,18 @@ describe('Testing routes',()=>{
     });
   });
 
+  describe('Testing /deleteStyle route',()=>{
+    it('Should delete a style and return 200', async()=>{
+      const res = await app.inject({
+        method:'DELETE',
+        url:'/deleteStyle/krump',
+        body:{
+          key:19980930
+        }
+      });
+      expect(res).to.have.status(200);
+    });
+  });
+
 
 });
