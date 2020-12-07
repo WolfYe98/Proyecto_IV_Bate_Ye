@@ -74,7 +74,38 @@ describe('Testing routes',()=>{
     });
   });
 
-  
+  describe('Testing /recommendation route',()=>{
+    it('Should recommend a style',async ()=>{
+      const res = await app.inject({
+        method:'GET',
+        url: '/recommendation',
+        query: {brazos:3,cadera:3}
+      });
+      expect(res).to.have.status(200);
+    });
+  });
+
+  describe('Testing /addStyle route',()=>{
+    it('Should add the new style and return a 201 status code',async ()=>{
+      const res = await app.inject({
+        method:'PUT',
+        url: '/addstyle',
+        body:{
+          key:19980930,
+          newStyle:{
+            name:'New Style',
+            year: 2020,
+            founder: 'Bate Ye',
+            city: 'Madrid',
+            history: 'At this moment im creating a new style',
+            description: 'This is just an style for testing my api',
+            body: ["cabeza"]
+          }
+        }
+      });
+      expect(res).to.have.status(201);
+    });
+  });
 
 
 });
