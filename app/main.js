@@ -293,9 +293,14 @@ function build(opts={}){
     });
 
     app.post('/updateStyle',(req,res)=>{
-      var newStyle = req.body.updateStyle;
+      var uStyle = req.body.updateStyle;
       try{
-        styles.updateStyle(newStyle.styleName, newStyle.styleInformation);
+        styles.updateStyle(uStyle.styleName, uStyle.styleInformation);
+        res.code(200);
+        res.send({
+          statusCode:res.statusCode,
+          message:`Style ${uStyle.styleName} updated`
+        })
       }catch(err){
         console.log(err);
         res.code(404);
