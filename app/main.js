@@ -314,6 +314,11 @@ function build(opts={}){
     app.delete('/deleteStyle/:deleteStyleName',(req,res)=>{
       try{
         styles.deleteStyle(req.params.deleteStyleName);
+        res.code(200);
+        res.send({
+          statusCode:res.statusCode,
+          message:`Style: ${req.params.deleteStyleName} deleted`
+        })
       }catch(err){
         console.log(err);
         res.code(404);
