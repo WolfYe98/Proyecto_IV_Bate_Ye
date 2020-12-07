@@ -54,6 +54,27 @@ describe('Testing routes',()=>{
     });
   });
 
+  describe('Testing /prices/:city route',()=>{
+    it('Should have a city called Madrid',async ()=>{
+      const res = await app.inject({
+        method:'GET',
+        url: '/prices/madrid'
+      });
+      expect(res).to.have.status(200);
+    });
+  });
+
+  describe('Testing /prices route',()=>{
+    it('Should have a list of prices',async ()=>{
+      const res = await app.inject({
+        method:'GET',
+        url: '/prices'
+      });
+      expect(res).to.have.status(200);
+    });
+  });
+
+  
 
 
 });
