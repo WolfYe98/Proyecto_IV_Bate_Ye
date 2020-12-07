@@ -3,6 +3,12 @@ const URL = 'https://academies-pricing.vercel.app/api/academiesPricing';
 
 async function consultarPrecioGeneral(){
   var retorno = await fetch(URL).then(res => res.json()).then(datos =>{return datos});
+  if(retorno.includedCities != undefined){
+    retorno.statusCode = 404;
+  }
+  else{
+    retorno.statusCode = 200;
+  }
   return retorno;
 }
 async function consultarPrecioCiudad(ciudad){

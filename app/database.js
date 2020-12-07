@@ -183,6 +183,26 @@ class Database{
       }
     }
   }
+  /**
+  * @function updateStyle
+  * @summary Método para añadir un estilo de baile, para añadirlo hay que escribir todos los datos del estilo.
+  * @author Bate Ye
+  * @param {string} styleName Es el nombre del estilo de baile que queremos borrar.
+  * @param {Object} styleInformation Contiene la nueva información del estilo.
+  */
+  updateStyle(styleName, styleInformation){
+    var n = styleName.replace(' ','');
+    n = n.toLowerCase();
+    if(this.data[n] != undefined){
+      var keys = Object.keys(styleInformation);
+      for(var i = 0; i < keys.length; i++){
+        this.data[n][keys[i]] = styleInformation[keys[i]];
+      }
+    }
+    else{
+      throw new Error('Style does not included');
+    }
+  }
   writeFile(){
     if(this.path != undefined){
       fs.writeFile(this.path,JSON.stringify(this.data,null,4),function(err){

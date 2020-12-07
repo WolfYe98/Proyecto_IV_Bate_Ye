@@ -24,6 +24,9 @@ class Styles{
   addStyle(styleName, year, founder, city, history, description, body){
     return this.db.addStyle(styleName, year, founder, city, history, description, body);
   }
+  updateStyle(styleName, styleInformation){
+    return this.db.updateStyle(styleName, styleInformation);
+  }
   deleteStyle(styleName){
     this.db.deleteStyle(styleName);
   }

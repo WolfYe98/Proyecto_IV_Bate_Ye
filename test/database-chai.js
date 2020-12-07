@@ -2,7 +2,7 @@ var expect = require('chai').expect;
 var Database = require('../app/database.js');
 var path = require('path');
 var BodyPartLevel = require('../app/bodypartlevel.js');
-var recommendation = require('../app/recommendation.js');
+var recommendation = require('../app/recommendation.js').recommendation;
 var consultarPrecioCiudad = require('../app/prices.js').consultarPrecioCiudad;
 var consultarPrecioGeneral = require('../app/prices.js').consultarPrecioGeneral;
 
@@ -75,8 +75,8 @@ describe('Testing Database Class',function(){
   });
 
   describe('Test getStyleByFounder function',function(){
-    it('Should return an JavaScript Object using the parameter DJ',function(){
-      expect(db.getStyleByFounder("DJ")["founder"].toLowerCase()).to.equal('dj kool herc');
+    it('Should return an Style',function(){
+      expect(db.getStyleByFounder("DJKOOLHERC")["founder"].toLowerCase()).to.equal('dj kool herc');
     });
   });
 
@@ -138,13 +138,38 @@ describe('Testing Database Class',function(){
       expect(JSON.stringify(db.data).toLowerCase()).to.equal(JSON.stringify(esperado).toLowerCase());
     });
   });
+
+  describe('Testing updateStyle function',function(){
+    it('Should change hiphop year to 2000',()=>{
+      db.updateStyle('hiphop',{"year":2000});
+      var esperado = {
+        "hiphop": {
+          "year": 2000,
+          "founder": "DJ Kool Herc",
+          "city": "New York",
+          "history": "Hip-Hop en la actualidad lo conocen como un estilo de danza urbana freestyle, pero en realidad Hip-Hop es una cultura generada en el sur de Bronx, New York en los años 70s por los jovenes afroamericanos y LatinoAmericanos. En un principio Hip-Hop se refería a 4 grandes elementos: rap, breaking, graffiti y djing. Durante los 70s, 80s, el único estilo de baile del Hip-Hop era solamente breaking, hasta que empezaron a desarrollar más pasos de baile sin movimientos en el suelo (top-rocks), y entonces nació el estilo de baile llamado Hip-Hop",
+          "description": "Hip-Hop es un baile que requiere muchos bounces (rebotes), es más, lo primero que se enseña en Hip-Hop son los 2 tipos de bounce que hay, el up y el down. En Hip-Hop es muy importante que nunca se olviden del bounce, ya que es lo fundamental de este estilo. Requiere muchas prácticas para dominar el bounce hasta meterlo en pasos más complejos como el slide, ball change, kick ball change etc... Otra parte muy importante es la musicalidad, es decir, saber contar los 8s de la música. Hoy en día, las personas suelen bailar Hip-Hop con música de diferentes estilos, pero en su inicio, Hip-Hop siempre se bailaba con rap old school.",
+          "body":["piernas","pecho","cadera","brazos"]
+        },
+        "krump": {
+          "year": 2000,
+          "founder": "Tight Eyez",
+          "city": "Los Angeles",
+          "history": "",
+          "description": "",
+          "body":["brazos","piernas","cadera"]
+        }
+      };
+      expect(JSON.stringify(db.data).toLowerCase()).to.equal(JSON.stringify(esperado).toLowerCase());
+    });
+  });
 });
 
 //Testeando funciones que utilizan el micro-api
 describe('Testing consultarPrecioGeneral function', function(){
   it('Should return an object with prices minimum, maximum and medium of each city',async function(){
     var general = await consultarPrecioGeneral();
-    var generalEsperado = {Madrid:{Maximum:55,Minimum:30,Medium:42.5},Barcelona:{Maximum:60,Minimum:40,Medium:48.5},NewYork:{Maximum:160,Minimum:76,Medium:109.25},Sevilla:{Maximum:42,Minimum:35,Medium:38.25},LosAngeles:{Maximum:57,Minimum:17,Medium:38}};
+    var generalEsperado = {Madrid:{Maximum:55,Minimum:30,Medium:42.5},Barcelona:{Maximum:60,Minimum:40,Medium:48.5},NewYork:{Maximum:160,Minimum:76,Medium:109.25},Sevilla:{Maximum:42,Minimum:35,Medium:38.25},LosAngeles:{Maximum:57,Minimum:17,Medium:38},statusCode:200};
     expect(JSON.stringify(general)).to.equal(JSON.stringify(generalEsperado));
   });
 });
@@ -152,14 +177,14 @@ describe('Testing consultarPrecioCiudad',function(){
   describe('Testing it with an included city',function(){
     it('Should return an object which has prices of academies from Madrid',async function(){
       var precioCiudad = await consultarPrecioCiudad('madrid');
-      var preciosEsperado={Madrid:{Wosap:35,MadridDance:30,CientOchentaGrados:55,ThePlace:50}};
+      var preciosEsperado={Madrid:{Wosap:35,MadridDance:30,CientOchentaGrados:55,ThePlace:50},status:200};
       expect(JSON.stringify(precioCiudad)).to.equal(JSON.stringify(preciosEsperado));
     });
   });
   describe('Testing it with a NO included city',function(){
     it('Should return an object with a fail atribbute and a list of included cities',async function(){
       var noCity = await consultarPrecioCiudad('Roma');
-      var valEsperado = {fail:'Not included city',includedCities:["Madrid","Barcelona","NewYork","Sevilla","LosAngeles"]};
+      var valEsperado = {status:404,fail:"Not included city",includedCities:["Madrid","Barcelona","NewYork","Sevilla","LosAngeles"]}
       expect(JSON.stringify(noCity)).to.equal(JSON.stringify(valEsperado));
     });
   });
@@ -167,13 +192,14 @@ describe('Testing consultarPrecioCiudad',function(){
 
 
 //Testeando la función recommendation
-describe('Testing recommendation function',async function(){
-  var retorno = await recommendation([new BodyPartLevel('brazos', 3),new BodyPartLevel('piernas', 3)]);
-  it('Should return an array',function(){
+describe('Testing recommendation function',function(){
+  it('Should return an array',async function(){
+    var retorno = await recommendation([new BodyPartLevel('brazos', 3),new BodyPartLevel('piernas', 3)]);
     expect(retorno).to.be.a('array');
   });
-  it('Should return hiphop and krump',function(){
+  it('Should return hiphop and krump',async function(){
     var retEsperado = ['hiphop','krump'];
-    expect(retorno).to.equal(retEsperado);
+    var retorno = await recommendation([new BodyPartLevel('brazos', 3),new BodyPartLevel('piernas', 3)]);
+    expect(retorno.toString()).to.equal(retEsperado.toString());
   });
 });
