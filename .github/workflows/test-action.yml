@@ -24,8 +24,12 @@ jobs:
                 echo "::set-output name=file_changed::true"
               fi
           done
-      - name: prueba
-        run: echo ${{ steps.changed.outputs.file_changed }}
+      - name: Publish to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GH_REGISTRY_TOKEN }}
       - name: check_if_need_build_and_push
         if: ${{ steps.changed.outputs.file_changed == 'true' }}
         run: docker build -t ghcr.io/wolfye98/proyecto_iv_bate . && docker push ghcr.io/wolfye98/proyecto_iv_bate:latest
