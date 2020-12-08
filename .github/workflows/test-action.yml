@@ -3,36 +3,6 @@ name: Testing GHCR Image
 on: [push]
 
 jobs:
-  check_file_changed:
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: get changed files
-        id: getfile
-        run: |
-          echo "::set-output name=files::$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }}| xargs)"
-      - name: echo the changed files
-        id: changed
-        run: |
-          for i in ${{ steps.getfile.outputs.files }}
-          do
-              if [ $i == 'Dockerfile' ] || [ $i == 'package.json' ];
-              then
-                echo "::set-output name=file_changed::true"
-              fi
-          done
-      - name: Publish to GitHub Container Registry
-        uses: docker/login-action@v1
-        with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.GH_TOKEN }}
-      - name: check_if_need_build_and_push
-        if: ${{ steps.changed.outputs.file_changed == 'true' }}
-        run: docker build -t ghcr.io/wolfye98/proyecto_iv_bate . && docker push ghcr.io/wolfye98/proyecto_iv_bate:latest
   test:
     runs-on: ubuntu-latest
     steps:

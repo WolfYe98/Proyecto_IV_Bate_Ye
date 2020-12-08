@@ -1,17 +1,34 @@
 name: Publish Docker image
 on: [push]
 jobs:
-  push_to_registry:
-    name: Push Docker Image to Github Container Registry
+  check_file_changed:
+    name: Publish image to GHCR
     runs-on: ubuntu-latest
     steps:
-      - name: Check out the repo
+      - name: checkout
         uses: actions/checkout@v2
-      - name: Push to Github
-        uses: docker/build-push-action@v2
         with:
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+      - name: get changed files
+        id: getfile
+        run: |
+          echo "::set-output name=files::$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }}| xargs)"
+      - name: echo the changed files
+        id: changed
+        run: |
+          for i in ${{ steps.getfile.outputs.files }}
+          do
+              if [ $i == 'Dockerfile' ] || [ $i == 'package.json' ];
+              then
+                echo "::set-output name=file_changed::true"
+              fi
+          done
+      - name: Publish to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
           registry: ghcr.io
-          repository: wolfye98/proyecto_iv_bate
-          tag_with_ref: true
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GH_TOKEN }}
+      - name: check_if_need_build_and_push
+        if: ${{ steps.changed.outputs.file_changed == 'true' }}
+        run: docker build -t ghcr.io/wolfye98/proyecto_iv_bate . && docker push ghcr.io/wolfye98/proyecto_iv_bate:latest
