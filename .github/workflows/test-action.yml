@@ -18,6 +18,7 @@ jobs:
           do
             if [ $i == 'Dockerfile' ] || [ $i == 'package.json' ];
             then
+              echo $i;
               $c = true;
             fi
           done
