@@ -8,15 +8,24 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Check if files changed
+        id: getfiles
+        run: echo "::set-output name=files::$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }}| xargs)"
+      - name: check_if_specific_files_changed
         id: changed
-        uses: jackton1/find-changed-files@v1.1
-        with:
-          files: "Dockerfile, package.json"
-
-      - name: Build if file changed
-        run: echo ${{ steps.changed.outputs.files_changed }}
-
-
+        run: |
+          echo "::set-output name=file_changed::false";
+          for i in ${{ steps.getfile.outputs.files }}
+          do
+            if [ $i == 'Dockerfile' ] || [ $i == 'package.json' ];
+            then
+              echo "::set-output name=file_changed::true"
+            fi
+          done
+      - name: prueba
+        run: echo ${{ steps.changed.outputs.file_changed }}
+      - name: check_if_need_build_and_push
+        if: ${{ steps.changed.outputs.file_changed == 'true' }}
+        run: docker build -t ghcr.io/wolfye98/proyecto_iv_bate . && docker push ghcr.io/wolfye98/proyecto_iv_bate:latest
   test:
     runs-on: ubuntu-latest
     steps:
