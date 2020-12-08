@@ -31,4 +31,4 @@ jobs:
           password: ${{ secrets.GH_TOKEN }}
       - name: check_if_need_build_and_push
         if: ${{ steps.changed.outputs.file_changed == 'true' }}
-        run: docker build -t ghcr.io/wolfye98/proyecto_iv_bate . && docker push ghcr.io/wolfye98/proyecto_iv_bate:latest
+        run: docker build -t ghcr.io/wolfye98/proyecto_iv_bate . && docker push ghcr.io/wolfye98/proyecto_iv_bate
