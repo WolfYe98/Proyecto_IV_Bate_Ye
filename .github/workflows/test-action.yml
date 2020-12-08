@@ -3,10 +3,21 @@ name: Testing GHCR Image
 on: [push]
 
 jobs:
-  build:
-
+  check_file_changed:
     runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Check if files changed
+        id: changed
+        uses: jackton1/find-changed-files@v1.1
+        with:
+          files: "Dockerfile, package.json"
+      - name: Build if file changed
+        if: steps.changed.outputs.files_changed=='true'
+        run: docker build -t ghcr.io/wolfye98/proyecto_iv_bate . && docker push ghcr.io/wolfye98/proyecto_iv_bate:latest
 
+  test:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: tests
