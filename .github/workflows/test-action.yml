@@ -13,14 +13,20 @@ jobs:
       - name: check_if_specific_files_changed
         id: changed
         run: |
-          echo "::set-output name=file_changed::false";
+          $c = false;
           for i in ${{ steps.getfile.outputs.files }}
           do
             if [ $i == 'Dockerfile' ] || [ $i == 'package.json' ];
             then
-              echo "::set-output name=file_changed::true"
+              $c = true;
             fi
           done
+          if [ $c == true ];
+          then
+            echo "::set-output name=file_changed::true"
+          else
+            echo "::set-output name=file_changed::false"
+          fi
       - name: prueba
         run: echo ${{ steps.changed.outputs.file_changed }}
       - name: check_if_need_build_and_push
