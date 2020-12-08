@@ -19,7 +19,6 @@ jobs:
         run: |
           for i in ${{ steps.getfile.outputs.files }}
           do
-              echo $i;
               if [ $i == 'Dockerfile' ] || [ $i == 'package.json' ];
               then
                 echo "::set-output name=file_changed::true"
