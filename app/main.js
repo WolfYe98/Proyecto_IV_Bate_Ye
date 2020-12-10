@@ -32,7 +32,7 @@ async function build(opts={}){
       if(req.params.styleName != undefined){
         if(req.params.styleName == ''){
           req.log.info('req does not pass any style name passed to /style!');
-          res.code(404);
+          res.code(400);
           res.type('application/json');
           res.send({
             statusCode: res.statusCode,
@@ -43,7 +43,7 @@ async function build(opts={}){
       if(req.params.cityName != undefined){
         if(req.params.cityName == ''){
           req.log.info('req does not pass any cityName passed to /city!');
-          res.code(404);
+          res.code(400);
           res.type('application/json');
           res.send({
             statusCode: res.statusCode,
@@ -54,7 +54,7 @@ async function build(opts={}){
       if(req.params.founderName != undefined){
         if(req.params.founderName == ''){
           req.log.info('req does not pass any founder name passed to /founder!');
-          res.code(404);
+          res.code(400);
           res.type('application/json');
           res.send({
             statusCode: res.statusCode,
@@ -65,7 +65,7 @@ async function build(opts={}){
       if(req.params.city != undefined){
         if(req.params.city == ''){
           req.log.info('req does not pass any city passed to /prices!');
-          res.code(404);
+          res.code(400);
           res.type('application/json');
           res.send({
             statusCode: res.statusCode,
@@ -105,7 +105,6 @@ async function build(opts={}){
         });
       }
     });
-
     //Ruta que recibe el nombre de un fundador y devuelve el estilo que ha creado.
     app.get('/founder/:founderName',(req,res)=>{
       try{
@@ -243,43 +242,18 @@ async function build(opts={}){
         else{
           if(req.method == 'POST'){
             var sts = styles.getStyles();
-            if(req.body.updateStyle != undefined){
-              if(req.body.updateStyle.styleName != undefined){
-                var name = req.body.updateStyle.styleName;
-                name = name.replace(' ','');
-                name = name.toLowerCase();
-                if(!sts.includes(name)){
-                  req.log.info('Style not founded');
-                  res.code(404);
-                  res.type('application/json');
-                  res.send({
-                    statusCode: res.statusCode,
-                    message: `The style ${name} is not included in our database`
-                  });
-                }
-              }
-              else{
-                req.log.info('styleName does not exists');
-                res.code(400);
-                res.type('application/json');
-                res.send({
-                  statusCode: res.statusCode,
-                  message: 'You have not pass any styleName'
-                });
-              }
-            }
-            else{
-              req.log.info('request does not pass any style to /updateStyle');
+            if(req.body.updateStyle == undefined || (req.body.updateStyle != undefined && req.body.updateStyle == '')){
+              req.log.info('styleName does not exists');
               res.code(400);
               res.type('application/json');
               res.send({
                 statusCode: res.statusCode,
-                message: `You have not pass any style to /updateStyle`
+                message: 'You have not pass any styleName'
               });
             }
           }
           else if(req.method == 'DELETE'){
-            if(req.params.deleteStyleName == undefined){
+            if(req.params.deleteStyleName == undefined || (req.params.deleteStyleName != undefined && req.params.deleteStyleName == '')){
               req.log.info('request does not pass any style to /deleteStyle');
               res.code(400);
               res.type('application/json');
