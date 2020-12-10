@@ -184,6 +184,7 @@ async function build(opts={}){
       next();
     });
 
+    //Ruta para recomendar estilos.
     app.get('/recommendation',async (req,res)=>{
       var parts = req.query;
       var bodyNames = Object.keys(parts);
