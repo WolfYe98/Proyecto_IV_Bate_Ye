@@ -3,17 +3,14 @@ const build = require('../app/main.js');
 const chaiHttp = require('chai-http');
 const chai = require('chai');
 
-var app = build({
-  logger:{
-    level:'error',
-    prettyPrint:true
-  }
-});
 
 chai.use(chaiHttp);
 
 //On fastify, we use fastify.inject to make a fake request to our route.
-describe('Testing routes',()=>{
+describe('Testing routes',async ()=>{
+  var app = await build();
+  //var app = await build({logger:{level:'info',prettyPrint:true}});
+  //Para activar los logs.
   describe('Testing /allstyles route',()=>{
     it('Should return all style names',async ()=>{
       const res = await app.inject({
@@ -91,7 +88,7 @@ describe('Testing routes',()=>{
         method:'PUT',
         url: '/addstyle',
         body:{
-          key:19980930,
+          key:'19980930',
           newStyle:{
             name:'New Style',
             year: 2020,
@@ -113,7 +110,7 @@ describe('Testing routes',()=>{
         method:'POST',
         url:'/updateStyle',
         body:{
-          key:19980930,
+          key:'19980930',
           updateStyle:{
             styleName:'hiphop',
             styleInformation:{
@@ -132,12 +129,11 @@ describe('Testing routes',()=>{
         method:'DELETE',
         url:'/deleteStyle/krump',
         body:{
-          key:19980930
+          key:'19980930'
         }
       });
       expect(res).to.have.status(200);
     });
   });
-
 
 });
