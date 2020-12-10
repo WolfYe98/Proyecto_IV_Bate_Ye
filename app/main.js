@@ -230,6 +230,7 @@ async function build(opts={}){
         });
       }
       else{
+        //Usando configuración externa para comparar las claves introducidas
         if(req.body.key != (configurations.key).toString()){
           req.log.info('request key wrong');
           res.code(403);
