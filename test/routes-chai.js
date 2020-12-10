@@ -61,11 +61,11 @@ describe('Testing routes',async ()=>{
     });
   });
 
-  describe('Testing /prices route',()=>{
+  describe('Testing /generalPricesprices route',()=>{
     it('Should have a list of prices',async ()=>{
       const res = await app.inject({
         method:'GET',
-        url: '/prices'
+        url: '/generalPrices'
       });
       expect(res).to.have.status(200);
     });
