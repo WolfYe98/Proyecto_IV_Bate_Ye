@@ -124,6 +124,7 @@ async function build(opts={}){
       }
     });
 
+    //Ruta para consultar precios de las academias
     app.get('/prices/:city',async (req,res)=>{
       var obj = await consultarPrecioCiudad(req.params.city);
       if(obj.status == 200){
@@ -146,8 +147,7 @@ async function build(opts={}){
     done();
   }
 
-  //Ruta para consultar precios de un estilo.
-  app.get('/prices',async (req,res)=>{
+  app.get('/generalPrices',async (req,res)=>{
     var obj = await consultarPrecioGeneral();
     if(obj.statusCode != 200){
       res.code(404);
