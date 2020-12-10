@@ -217,7 +217,7 @@ async function build(opts={}){
 
   //add, update and delete some styles.
   app.register(userHook);
-
+  //Añadido rutas para añadir, modificar o eliminar un estilo
   function userHook(app,options,done){
     app.addHook('preHandler',(req,res,next)=>{
       if(req.body.key == undefined){
