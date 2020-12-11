@@ -9,6 +9,14 @@ Con esta API, mi intención es facilitar a las personas que aún no han empezado
 [Aquí puedes encontrar los pasos que he ido siguiendo](https://github.com/WolfYe98/Proyecto_IV_Bate/blob/master/docs/pasosaseguir.md)
 
 
+## Microservicio:
+
+### Framework elegido:
+- [Documentación del Framework elegido](docs/fastify.md)
+
+### Rutas y buenas prácticas:
+- [Documentación del diseño del API](docs/api.md)
+
 ## Serverless:
 ### Vercel:
 [Vercel](https://vercel.com/) es una plataforma donde puedes subir funciones serverless, de forma muy sencilla, además cuenta con integración con Github. Te puedes registrar con tu cuenta de Github.
