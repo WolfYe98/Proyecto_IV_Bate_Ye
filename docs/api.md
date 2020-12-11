@@ -9,15 +9,15 @@ El fichero de las rutas es [este](../app/main.js), y los tests están [aquí](..
 
 Para la [HU1](https://github.com/WolfYe98/Proyecto_IV_Bate/issues/23) he definido dos rutas:
 
-  - ```app.get('prices/:city',handler)```: que recibe el nombre de una ciudad, y devuelve los precios de las academias de dicha ciudad con el tipo ```application/json``` y el código 200 si la ciudad está en la base de datos, en caso contrario, devuelve un json con un mensaje y el código 404. Esta ruta también tiene un hook como los anteriores, que mira primero si la ciudad que le ha pasado es correcto (que no esté el parámetro vacío), y si es correcto pasa a la ejecución del handler, y en caso contrario se crea un log y se devuelve al cliente un mensaje de recurso no encontrado con código 400 indicando que la petición no es correcta.
+  - ```app.get('prices/:city',handler)```: que recibe el nombre de una ciudad, y devuelve los precios de las academias de dicha ciudad con el tipo ```application/json``` y el código 200 si la ciudad está en la base de datos, en caso contrario, devuelve un json con un mensaje de recurso no encontrado y el código 404. Esta ruta tiene un hook que se ejecuta antes de ejecutar la función handler, el hook mira primero si la ciudad que le ha pasado es correcto (que no esté el parámetro vacío), y si es correcto pasa a la ejecución del handler, y en caso contrario se crea un log indicando al servidor de la información de esta petición y se devuelve al cliente un mensaje de petición errónea con código 400 indicando que la petición no es correcta.
 
-  - ```app.get('generalPrices',handler)```: esta ruta devuelve la lista de los precios mínimo, medio y máximo de cada ciudad. Devuelve la lista junto con el código 200 y tipo ```application/json``` si hay ciudades en la base de datos, en caso contrario devuelve como antes, un json con 404 y un mensaje de recurso no encontrado.
+  - ```app.get('generalPrices',handler)```: esta ruta devuelve la lista de los precios mínimo, medio y máximo de cada ciudad. Devuelve la lista junto con el código 200 y tipo ```application/json``` si hay ciudades en la base de datos, en caso contrario devuelve un json con el código 404 y un mensaje de recurso no encontrado.
 
 ### HU2:
 
 Para la [HU2](https://github.com/WolfYe98/Proyecto_IV_Bate/issues/25) he definido una ruta junto con un hook:
 
-  - ```app.get('/recommendation',handler)```: esta ruta, recibe un queryString, el hook de esta ruta, antes de nada revisa que en la petición haya un query, si la query no existe, directamente crea un log y devuelve una respuesta con el error 400 indicando que la petición no es correcta, y un mensaje. Al queryString hay que pasarle una serie de partes del cuerpo y la intensidad con la que el usuario suele usarlo, esta ruta recoge estas partes del cuerpo junto con su intensidad, analiza los estilos que hay en la base de datos y devuelve los estilos que más se le ajuste a las partes del cuerpo e intensidades que el usuario ha pasado.
+  - ```app.get('/recommendation',handler)```: esta ruta, recibe un queryString, el hook de esta ruta, antes de nada revisa que en la petición haya un query, si la query no existe, directamente crea un log a nivel de información con un mensaje de petición erróneo en el servidor y devuelve al cliente una respuesta con el error 400 indicando que la petición no es correcta, y un mensaje. Al queryString hay que pasarle una serie de partes del cuerpo y la intensidad con la que el usuario suele usarlo, esta ruta recoge estas partes del cuerpo junto con su intensidad, analiza los estilos que hay en la base de datos y devuelve los estilos que más se le ajuste a las partes del cuerpo e intensidades que el usuario ha pasado.
 
 ### HU3:
 
