@@ -20,6 +20,9 @@ Para la [HU2](https://github.com/WolfYe98/Proyecto_IV_Bate/issues/25) he definid
   - ```app.get('/recommendation',handler)```: esta ruta, recibe un queryString, el hook de esta ruta, antes de nada revisa que en la petición haya un query, si la query no existe, directamente crea un log y devuelve una respuesta con el error 400 indicando que la petición no es correcta, y un mensaje. Al queryString hay que pasarle una serie de partes del cuerpo y la intensidad con la que el usuario suele usarlo, esta ruta recoge estas partes del cuerpo junto con su intensidad, analiza los estilos que hay en la base de datos y devuelve los estilos que más se le ajuste a las partes del cuerpo e intensidades que el usuario ha pasado.
 
 ### HU3:
+
+Para la [HU3](https://github.com/WolfYe98/Proyecto_IV_Bate/issues/28), he definido 4 rutas en total:
+
   - ```app.get('/allstyles',handler)```: Esta ruta, devuelve todos los estilos de danza con su información, con código 200 en caso de que haya estilos en la base de datos, y devuelve un 404 con un mensaje de recurso no encontrado en caso de que no haya ningún estilo.
   - En las 3 siguientes, que son:
     ```bash
@@ -31,7 +34,6 @@ Para la [HU2](https://github.com/WolfYe98/Proyecto_IV_Bate/issues/25) he definid
     Para estas tres rutas, he definido un hook que se ejecuta justo antes de ejecutar el handler de cada ruta, dicho hook comprobará que la petición contenga un parámetro correcto, en caso de que el parámetro no es correcto, devuelve directamente un código 400 indicando que la petición no es correcta al cliente, y crea un log con un mensaje específico.
     Estas rutas devuelven un estilo cuyo nombre del estilo, la ciudad donde se fundó o el nombre del fundador, coincidan con lo que haya en el parámetro, si lo encuentran, devuelve el estilo y su información en tipo ```application/json``` junto con un código 200, y en caso contrario devuelve el json con un mensaje de recurso no encontrado y el código 404.
 
-  Para la [HU3](https://github.com/WolfYe98/Proyecto_IV_Bate/issues/28), he definido 4 rutas en total:
 
 
 
