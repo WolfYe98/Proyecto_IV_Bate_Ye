@@ -8,3 +8,5 @@ test:
 taskfile:
   - gulpfile.js
 URL: https://academies-pricing.vercel.app/api/academiesPricing
+
+make: gulp
