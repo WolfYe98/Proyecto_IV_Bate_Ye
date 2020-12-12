@@ -44,3 +44,13 @@
   - Usando parámetros en funciones serverless
   - Entender como crear un despliegue serverless para el hito número cinco.
   - Entender la importancia de los loggers para la observabilidad.
+
+## Hito 6:
+  - Entender qué es un test de integración.
+  - Entender la importancia de los logs para la observabilidad.
+  - Entender el concepto de ruta, middleware y URI.
+  - Entender el concepto de ruta.
+  - Entender el concepto de middleware.
+  - Comprender el concepto de clases controladoras, esenciales al concepto de "única fuente de verdad", y cómo se desacoplan los microservicios del resto.
+  - Entender el concepto de inyección de dependencias y single source of truth.
+  - Tests de integración.
