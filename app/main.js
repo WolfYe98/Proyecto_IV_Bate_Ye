@@ -31,6 +31,7 @@ async function build(opts={}){
     app.addHook('preHandler',async (req,res)=>{
       if(req.params.styleName != undefined){
         if(req.params.styleName == ''){
+          //Muestro por pantalla este log con el mensaje personalizado
           req.log.info('req does not pass any style name passed to /style!');
           res.code(400);
           res.type('application/json');
@@ -42,6 +43,7 @@ async function build(opts={}){
       }
       if(req.params.cityName != undefined){
         if(req.params.cityName == ''){
+          //Muestro por pantalla este log con el mensaje personalizado
           req.log.info('req does not pass any cityName passed to /city!');
           res.code(400);
           res.type('application/json');
@@ -53,6 +55,7 @@ async function build(opts={}){
       }
       if(req.params.founderName != undefined){
         if(req.params.founderName == ''){
+          //Muestro por pantalla este log con el mensaje personalizado
           req.log.info('req does not pass any founder name passed to /founder!');
           res.code(400);
           res.type('application/json');
@@ -64,6 +67,7 @@ async function build(opts={}){
       }
       if(req.params.city != undefined){
         if(req.params.city == ''){
+          //Muestro por pantalla este log con el mensaje personalizado
           req.log.info('req does not pass any city passed to /prices!');
           res.code(400);
           res.type('application/json');
@@ -172,6 +176,7 @@ async function build(opts={}){
     app.addHook('preHandler',(req,res,next)=>{
       var keys = Object.keys(req.query);
       if(keys.length == 0){
+        //Muestro por pantalla este log con el mensaje personalizado
         req.log.info('req does not pass any body parts passed to the request');
         res.code(400);
         res.type('application/json');
@@ -220,6 +225,7 @@ async function build(opts={}){
   function userHook(app,options,done){
     app.addHook('preHandler',(req,res,next)=>{
       if(req.body.key == undefined){
+        //Muestro por pantalla este log con el mensaje personalizado
         req.log.info('request without user key');
         res.code(401);
         res.type('application/json');
