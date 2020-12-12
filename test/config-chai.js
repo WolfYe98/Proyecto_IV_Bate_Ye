@@ -6,7 +6,7 @@ const chai = require('chai');
 
 describe('Testing external configuration function',()=>{
   it('Should return an Object',async()=>{
-    var config =await exteportConfig();
+    var config = await exteportConfig();
     expect(config).to.be.an('object');
   });
   it('Should return an int PORT',async()=>{
