@@ -14,8 +14,9 @@ Con esta API, mi intención es facilitar a las personas que aún no han empezado
 ### Framework elegido:
 - [Documentación del Framework elegido](docs/fastify.md)
 
-### Rutas y buenas prácticas:
+### Rutas:
 - [Documentación del diseño del API](docs/api.md)
+- [Documentación de los tests](docs/testsMicroservicio.md)
 
 ## Serverless:
 ### Vercel:
