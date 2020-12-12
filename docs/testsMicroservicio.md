@@ -16,7 +16,10 @@ const res = await fastify.inject({
 ```
 Aquí le estoy haciendo una petición tipo GET a la ruta ```/allstyles```.
 
-Esta petición devuelve un objeto con la respuesta del servidor y lo guardo en res.
+Esta petición devuelve un objeto con la respuesta del servidor, esa respuesta lo guardo en la variable res para más tarde, testear por ejemplo el código de estado que ha devuelto la petición con chai.
+```bash
+expect(res).to.have.status(200);
+```
 
 
 ## Test de la configuración:
