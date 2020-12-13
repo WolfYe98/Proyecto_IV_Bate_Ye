@@ -248,8 +248,8 @@ async function build(opts={}){
         else{
           if(req.method == 'POST'){
             var sts = styles.getStyles();
-            if(req.body.updateStyle == undefined || (req.body.updateStyle != undefined && req.body.updateStyle == '')){
-              req.log.info('styleName does not exists');
+            if(req.params.updateStyleName == undefined || (req.params.updateStyleName != undefined && req.params.updateStyleName == '')){
+              req.log.info('style does not exists');
               res.code(400);
               res.type('application/json');
               res.send({
@@ -269,16 +269,27 @@ async function build(opts={}){
               });
             }
           }
+          else if(req.method == 'PUT'){
+            if(req.params.newStyleName == undefined || (req.params.newStyleName != undefined && req.params.newStyleName == '')){
+              req.log.info('request does not pass any new style to /addstyle');
+              res.code(400);
+              res.type('application/json');
+              res.send({
+                statusCode: res.statusCode,
+                message: `You have not pass any style`
+              });
+            }
+          }
         }
       }
       next();
     });
 
-    app.put('/addstyle',(req,res)=>{
+    app.put('/addstyle/:newStyleName',(req,res)=>{
       if(req.body.newStyle != undefined){
         var ns = req.body.newStyle;
         try{
-          styles.addStyle(ns.name, parseInt(ns.year), ns.founder, ns.city, ns.history, ns.description, ns.body);
+          styles.addStyle(req.params.newStyleName, parseInt(ns.year), ns.founder, ns.city, ns.history, ns.description, ns.body);
           res.code(201);
           res.type('application/json');
           res.send({
@@ -297,10 +308,10 @@ async function build(opts={}){
       }
     });
 
-    app.post('/updateStyle',(req,res)=>{
-      var uStyle = req.body.updateStyle;
+    app.post('/updateStyle/:updateStyleName',(req,res)=>{
+      var uStyle = req.body.updateStyleInfo;
       try{
-        styles.updateStyle(uStyle.styleName, uStyle.styleInformation);
+        styles.updateStyle(req.params.updateStyleName, uStyle.styleInformation);
         res.code(200);
         res.type('application/json');
         res.send({
