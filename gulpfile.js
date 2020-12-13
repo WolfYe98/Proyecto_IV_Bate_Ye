@@ -14,5 +14,7 @@ gulp.task('install', async function(){
   gulp.src(['./package.json','./package-lock.json'])
     .pipe(install());
 });
+gulp.task('build',async function(){
 
+});
 gulp.task('default', gulp.series('test'));
