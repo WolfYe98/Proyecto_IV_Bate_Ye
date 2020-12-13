@@ -86,11 +86,10 @@ describe('Testing routes',async ()=>{
     it('Should add the new style and return a 201 status code',async ()=>{
       const res = await app.inject({
         method:'PUT',
-        url: '/addstyle',
+        url: '/addstyle/newStyle',
         body:{
           key:'19980930',
           newStyle:{
-            name:'New Style',
             year: 2020,
             founder: 'Bate Ye',
             city: 'Madrid',
@@ -108,11 +107,10 @@ describe('Testing routes',async ()=>{
     it('Should update a style and return 200', async()=>{
       const res = await app.inject({
         method:'POST',
-        url:'/updateStyle',
+        url:'/updateStyle/hiphop',
         body:{
           key:'19980930',
-          updateStyle:{
-            styleName:'hiphop',
+          updateStyleInfo:{
             styleInformation:{
               year:1976
             }
