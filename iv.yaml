@@ -1,12 +1,12 @@
 entidad:
   - app/database.js
   - app/bodypartlevel.js
-lenguaje:
-  - node
+lenguaje: JavaScript
 test:
   - test/database-chai.js
-taskfile:
-  - gulpfile.js
+  - test/routes-chai.js
+  - test/config-chai.js
+taskfile: gulpfile.js
 URL: https://academies-pricing.vercel.app/api/academiesPricing
 
 make: gulp
