@@ -170,7 +170,6 @@ describe('Testing consultarPrecioGeneral function', function(){
   it('Should return an object with prices minimum, maximum and medium of each city',async function(){
     var general = await consultarPrecioGeneral();
     var generalEsperado = {Madrid:{Maximum:55,Minimum:30,Medium:42.5},Barcelona:{Maximum:60,Minimum:40,Medium:48.5},NewYork:{Maximum:160,Minimum:76,Medium:109.25},Sevilla:{Maximum:42,Minimum:35,Medium:38.25},LosAngeles:{Maximum:57,Minimum:17,Medium:38},statusCode:200};
-    settimeout(()=>{},3000);
     expect(JSON.stringify(general)).to.equal(JSON.stringify(generalEsperado));
   });
 });
