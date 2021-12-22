@@ -1,5 +1,7 @@
 name: Publish Docker image
-on: [push]
+on: 
+  push:
+    branches: [master]
 jobs:
   check_file_changed:
     name: Publish image to GHCR
